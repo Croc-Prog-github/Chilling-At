@@ -9,13 +9,13 @@
   <header></header>
   
   <div style="display: flex;">
-    <slidebar style="display: flex; flex-direction: column;">
-      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; /*width: 15%;*/ background: white;">
-        <img src="/assets/place.svg" alt="Space" style="padding-inline: 7px; padding-block: 2px;">
-        <img src="/assets/sound.svg" alt="Sound" style="padding-inline: 7px; padding-block: 2px;">
-        <img src="/assets/apps.svg" alt="Apps" style="padding-inline: 7px; padding-block: 2px;">
+    <slidebar style="display: flex; flex-direction: column; width: 6%; max-width: max-content;">
+      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
+        <img class="icons" src="/assets/place.svg" alt="Space" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/sound.svg" alt="Sound" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/apps.svg" alt="Apps" style="padding-inline: 6px; padding-block: 3px;">
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; /*width: 15%;*/ background: white; margin-top: 5px;">
+      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; margin-top: 5px;">
         <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
       </div>
     </slidebar>
@@ -54,6 +54,26 @@
   body {
     font-family: 'Fuzzy Bubbles', cursive, 'Life Savers', cursive;
     font-weight: normal;
+  }
+
+  img{
+    pointer-events: auto;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  img.icons {
+    background: transparent;
+    user-select: none;
+  }
+  .icons:hover {
+    background: rgb(230, 230, 230);
+    border-radius: 10px;
+  }
+  .icons:active {
+    fill: darkgreen;
+    mix-blend-mode: difference;
+    background: transparent;
   }
 
   p {
