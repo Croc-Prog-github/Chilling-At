@@ -9,7 +9,7 @@
   <header></header>
   
   <div style="display: flex;">
-    <slidebar style="display: flex; flex-direction: column; width: 6%; max-width: max-content; min-width: 37px;">
+    <slidebar style="display: flex; flex-direction: column; width: 4%; max-width: max-content; min-width: 37px;">
       <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
         <img class="icons" src="/assets/place.svg" alt="Space" style="padding-inline: 6px; padding-block: 3px;">
         <img class="icons" src="/assets/sound.svg" alt="Sound" style="padding-inline: 6px; padding-block: 3px;">
@@ -20,7 +20,9 @@
       </div>
     </slidebar>
     <div style="width: 18%; min-width: 120px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
-      <div></div>
+      <div>
+        nature gif
+      </div>
       <div>
         <h3>Soundboard</h3>
         <p>
@@ -35,9 +37,9 @@
         <p>
           <strong>Ambiance</strong>
           <div style="overflow-x: hidden;">
-            Out rain
-            <audio src="/assets/audio/out_rain.mp3" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none;"></audio>
-            <input type="range" min="0" max="100" value="50" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100;">
+            <span>🌧️ Rain of out</span>
+            <audio src="/assets/audio/out_rain.mp3" volume="1.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+            <input type="range" min="0" max="100" value="50" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100;" onclick="this.previousElementSibling.play();">
           </div>
       </div>
     </div>
