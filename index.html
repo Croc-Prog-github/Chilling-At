@@ -8,16 +8,38 @@
 <body style="background: black;">
   <header></header>
   
-  <slidebar style="display: flex; flex-direction: column;">
-    <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; width: 15%; background: white;">
-      <img src="/assets/place.svg" alt="Space" style="padding-inline: 7px; padding-block: 2px;">
-      <img src="/assets/sound.svg" alt="Sound" style="padding-inline: 7px; padding-block: 2px;">
-      <img src="/assets/apps.svg" alt="Apps" style="padding-inline: 7px; padding-block: 2px;">
+  <div style="display: flex;">
+    <slidebar style="display: flex; flex-direction: column;">
+      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; /*width: 15%;*/ background: white;">
+        <img src="/assets/place.svg" alt="Space" style="padding-inline: 7px; padding-block: 2px;">
+        <img src="/assets/sound.svg" alt="Sound" style="padding-inline: 7px; padding-block: 2px;">
+        <img src="/assets/apps.svg" alt="Apps" style="padding-inline: 7px; padding-block: 2px;">
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; /*width: 15%;*/ background: white; margin-top: 5px;">
+        <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
+      </div>
+    </slidebar>
+    <div style="width: 20%">
+      <div></div>
+      <div>
+        <h3>Soundboard</h3>
+        <p>
+          <strong>Space's Audio</strong>
+          <input type="range" min="0" max="100" value="50" style="width: 100%; margin: 10px 0;">
+        </p>
+        <p>
+          <strong>Radio</strong>
+          <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly style="width: 100%; margin: 10px 0;">
+          <input type="range" min="0" max="100" value="50" style="width: 100%; margin: 10px 0;">
+        </p>
+        <p>
+          <strong>Ambiance</strong>
+          <div>
+            <audio src="/assets/audio/out rain.mp3"></audio>
+          </div>
+      </div>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; width: 15%; background: white; margin-top: 5px;">
-      <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
-    </div>
-  </slidebar>
+  </div>
 
   <div id="desk">
     <img id="background" src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;">
