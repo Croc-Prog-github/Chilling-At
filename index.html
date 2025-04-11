@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chill at</title>
+
+  <!-- Emoji -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
 </head>
 <body style="background: black;">
   <header></header>
@@ -25,7 +30,7 @@
       </div>
       <div>
         <h3>Soundboard</h3>
-        <p>
+        <p hidden>
           <strong>Space's Audio</strong>
           <input type="range" min="0" max="100" value="50" style="width: 100%;">
         </p>
@@ -37,7 +42,7 @@
         <p>
           <strong>Ambiance</strong>
           <div style="overflow-x: hidden;">
-            <span>🌧️ Rain of out</span>
+            <span><emoji>🌧️</emoji> Rain of out</span>
             <audio src="/assets/audio/out_rain.mp3" volume="1.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
             <input type="range" min="0" max="100" value="50" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100;" onclick="this.previousElementSibling.play();">
           </div>
@@ -57,6 +62,13 @@
   body {
     font-family: 'Fuzzy Bubbles', cursive, 'Life Savers', cursive;
     font-weight: normal;
+  }
+  h3 {
+    margin-block: 5px
+  }
+
+  emoji {
+    font-family: 'Segoe UI Emoji';
   }
 
   img {
