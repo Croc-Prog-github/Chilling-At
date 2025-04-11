@@ -45,10 +45,18 @@
         </p>
         <p>
           <strong>Ambiance</strong>
-          <div style="overflow-x: hidden;">
-            <span><emoji>🌧️</emoji> Rain of out</span>
-            <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-            <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+          <div>
+            <div style="overflow-x: hidden;">
+              <span><emoji>🌧️</emoji> Rain of out</span>
+              <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+            </div>
+
+            <div style="overflow-x: hidden;">
+              <span><emoji>🔥</emoji> Fire</span>
+              <audio src="/assets/audio/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+            </div>
           </div>
       </div>
     </div>
