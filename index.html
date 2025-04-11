@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+
+  <script>
+    document.querySelectorAll('audio').forEach(audio => audio.volume = 0.0);
+  </script>
 </head>
 <body style="background: black;">
   <header></header>
@@ -16,9 +20,9 @@
   <div style="display: flex;">
     <slidebar style="display: flex; flex-direction: column; width: 3%; max-width: max-content; min-width: 37px;">
       <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
-        <img class="icons" src="/assets/place.svg" alt="Space" style="padding-inline: 6px; padding-block: 3px;">
-        <img class="icons" src="/assets/sound.svg" alt="Sound" style="padding-inline: 6px; padding-block: 3px;">
-        <img class="icons" src="/assets/apps.svg" alt="Apps" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/icons/place.svg" alt="Space" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/icons/sound.svg" alt="Sound" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/icons/apps.svg" alt="Apps" style="padding-inline: 6px; padding-block: 3px;">
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; margin-top: 5px;">
         <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
@@ -43,8 +47,8 @@
           <strong>Ambiance</strong>
           <div style="overflow-x: hidden;">
             <span><emoji>🌧️</emoji> Rain of out</span>
-            <audio src="/assets/audio/out_rain.mp3" volume="1.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-            <input type="range" min="0" max="100" value="50" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100;" onclick="this.previousElementSibling.play();">
+            <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+            <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
           </div>
       </div>
     </div>
