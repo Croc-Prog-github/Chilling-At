@@ -36,11 +36,23 @@
           <details open>
             <summary>Nature & forest</summary>
             <div style="display: flex; flex-wrap: wrap;">
+              <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt="Nature & forest" class="SceneryIcons">
               <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons">
               <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons">
               <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons">
-              <img src="" alt="Nature & forest" style="width: 100%; height: auto; border-radius: 10px;">
-              <img src="" alt="Nature & forest" style="width: 100%; height: auto; border-radius: 10px;">
+              <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons">
+              <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons">
+              <img src="" alt="Nature & forest" class="SceneryIcons">
+              <img src="" alt="Nature & forest" class="SceneryIcons">
+            </div>
+          </details>
+
+          <details>
+            <summary>Sky</summary>
+            <div style="display: flex; flex-wrap: wrap;">
+              <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky" class="SceneryIcons">
+              <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky" class="SceneryIcons">
+              <img src="" alt="Sky" class="SceneryIcons">
             </div>
           </details>
         </div>
@@ -60,28 +72,29 @@
           <strong>Ambiance</strong>
           <div>
             <div style="overflow-x: hidden;">
-              <span><emoji>☔</emoji> Soft rain out</span>
+              <span><emoji>☔</emoji>Soft rain out</span>
               <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
               <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
             </div>
 
             <div style="overflow-x: hidden;">
-              <span><emoji>🔥</emoji> Fire</span>
+              <span><emoji>🌧️</emoji>Deep rain indoor</span>
+              <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+            </div>
+
+            <div style="overflow-x: hidden;">
+              <span><emoji>🔥</emoji>Fire</span>
               <audio src="/assets/audio/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
               <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
             </div>
 
             <div style="overflow-x: hidden;">
-              <span><emoji>⌨️</emoji> Keyboard</span>
+              <span><emoji>⌨️</emoji>Keyboard</span>
               <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
               <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
             </div>
 
-            <div style="overflow-x: hidden;">
-              <span><emoji>🌧️</emoji> Deep rain indoor</span>
-              <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-            </div>
           </div>
       </div>
     </div>
@@ -89,6 +102,7 @@
 
   <div id="desk">
     <img id="background" src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;">
+    <video src="" hidden></video>
   </div>
 </body>
 </html>
@@ -116,6 +130,7 @@
 
   emoji {
     font-family: 'Segoe UI Emoji';
+    user-select: none;
   }
 
   img {
@@ -150,6 +165,15 @@
   }
 
   #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  .background > video {
     position: absolute;
     top: 0;
     left: 0;
