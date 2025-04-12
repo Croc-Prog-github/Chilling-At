@@ -78,6 +78,7 @@
             <strong>Radio</strong>
             <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly style="width: 94%;">
             <input type="range" min="0" max="100" value="50" style="width: 100%;">
+            
           </p>
           <p>
             <strong>Ambiance</strong>
@@ -106,6 +107,11 @@
                 <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
               </div>
   
+              <div style="overflow-x: hidden;">
+                <span><emoji>🍃</emoji>Soft wind</span>
+                <audio src="/assets/audio/soft_wind.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+              </div>
             </div>
         </div>
       </div>
