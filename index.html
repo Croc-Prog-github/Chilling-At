@@ -36,7 +36,7 @@
     </slidebar>
     <div style="width: 22%; height: 670px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
       <div style="overflow-y: auto; height: -webkit-fill-available; overflow-x: hidden;">
-        <div>
+        <div id="scenery">
           <h3>Scenery</h3>
           <p hidden>
             <strong>Scenery's Audio</strong>
@@ -68,7 +68,7 @@
             </details>
           </div>
         </div>
-        <div>
+        <div id="soundboard">
           <h3>Soundboard</h3>
           <p hidden>
             <strong>Space's Audio</strong>
@@ -76,9 +76,13 @@
           </p>
           <p>
             <strong>Radio</strong>
-            <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly style="width: 94%;">
+            <!-- <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly> -->
+            <select style="width: 100%;">
+              <option value="suzume_lofi">suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
+              <option value="LofiHipHop_LofiGirl">https://youtu.be/jfKfPfyJRdk</option>
+              <option value="ChillHop">ChillHop Radio</option>
+            </select>
             <input type="range" min="0" max="100" value="50" style="width: 100%;">
-            
           </p>
           <p>
             <strong>Ambiance</strong>
