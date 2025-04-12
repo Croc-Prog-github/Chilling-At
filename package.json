@@ -7,8 +7,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "publish": "vite --host",
-    "start": "npm install && npm run npx",
-    "npx": "npx vite",
+    "start": "npm install && npx run vite",
     "postinstall": "chmod +x node_modules/.bin/vite"
   },
   "dependencies": {
