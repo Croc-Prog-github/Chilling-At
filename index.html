@@ -13,7 +13,7 @@
 
 
   <!-- script -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+
 
   <!-- Emoji -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,11 +34,11 @@
         <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
       </div>
     </slidebar>
-    <div style="width: 32%; height: 670px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
+    <div style="width: 22%; height: 670px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
       <div style="overflow-y: auto; height: -webkit-fill-available; overflow-x: hidden;">
         <div>
           <h3>Scenery</h3>
-          <p>
+          <p hidden>
             <strong>Scenery's Audio</strong>
             <input type="range" min="0" max="100" value="0" style="width: 100%;">
             <input type="search" placeholder="Search..." style="width: 100%; padding: 2px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 5px;">
@@ -47,23 +47,23 @@
             <details open>
               <summary>Nature & forest</summary>
               <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt="Nature & forest" class="SceneryIcons">
-                <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons">
-                <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons">
-                <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons">
-                <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons">
-                <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons">
-                <img src="" alt="Nature & forest" class="SceneryIcons">
-                <img src="" alt="Nature & forest" class="SceneryIcons">
+                <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
               </div>
             </details>
   
             <details>
               <summary>Sky & landscape</summary>
               <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky" class="SceneryIcons">
-                <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky" class="SceneryIcons">
-                <img src="https://i.ytimg.com/vi/zTK9DhM6OQc/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBMgKih_MA8=&rs=AOn4CLDW6T-43ArPFOdpOKwT3fvmpJLBcg" alt="Sky" class="SceneryIcons_Video" ::after>
+                <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.ytimg.com/vi/zTK9DhM6OQc/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBMgKih_MA8=&rs=AOn4CLDW6T-43ArPFOdpOKwT3fvmpJLBcg" alt="Sky" class="SceneryIcons_Video">
               </div>
             </details>
           </div>
@@ -113,21 +113,32 @@
   </div>
 
   <div id="background">
-    <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;" >
-    <div id="player" name="youtube API">
-      <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" hidden></iframe>
-    <!-- allowfullscreen -->
-    </div>    
+    <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;">
+    <div id="player" name="youtube API iframe"></div>
+    <!--
+      <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" style="display: none;"></iframe>
+    -->
   </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
+<script>
+  function ChangeBackground(src) {
+    var background = document.querySelector('#background > img');
+    if (background) {
+      background.src = src;
+    }
+  }
+</script>
 
 <script>
   document.querySelectorAll('audio').forEach(audio => audio.volume = 0.0);
 </script>
 
 <script>
-  var player;
+  /*var player;
 
   // Quando l'API di YouTube è pronta
   function onYouTubeIframeAPIReady() {
@@ -140,19 +151,30 @@
         loop: 1,           // Fa loop
         modestbranding: 1, // Nasconde il logo di YouTube
         rel: 0,            // Nasconde i video correlati alla fine
-        showinfo: 0,       // Nasconde il titolo e l'autore del video
         fs: 0,             // Nasconde il pulsante di fullscreen
         iv_load_policy: 3, // Nasconde i sottotitoli e le annotazioni
-        cc_load_policy: 0  // Nasconde i sottotitoli
+        cc_load_policy: 0, // Nasconde i sottotitoli
+        playlist: 'zTK9DhM6OQc' // Necessario per il loop
       },
       events: {
         onReady: function(event) {
-          // Gestisci il video quando è pronto
-          event.target.playVideo();
+          // Nasconde il video inizialmente
+          var playerElement = document.getElementById('player');
+          playerElement.style.display = 'none';
+
+          // Aspetta 4.5 secondi e poi mostra il video
+          setTimeout(function() {
+            playerElement.style.display = 'block';
+            event.target.playVideo();
+          }, 4500);
+        },
+        onError: function(event) {
+          console.error('Errore nel caricamento del video:', event.data);
         }
       }
     });
   }
+  */
 </script>
 
 <style>
@@ -169,13 +191,15 @@
   .SceneryIcons {
     width: 48%;
     border-radius: 10px;
-    padding: 1%;
+    margin: 1%;
+    cursor: pointer;
   }
   .SceneryIcons_Video {
     width: 48%;
     border-radius: 10px;
-    padding: 1%;
+    margin: 1%;
     position: relative;
+    cursor: pointer;
   }
   .SceneryIcons_Video::after {
     content: '\25B6'; /* Unicode for play symbol */
@@ -226,7 +250,7 @@
     margin-block: 2px;
   }
 
-  #player > iframe, #player {
+  iframe#player, #player {
     position: absolute;
     position-area: center;
     z-index: -1;
