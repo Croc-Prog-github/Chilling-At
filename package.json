@@ -4,5 +4,6 @@
   },
   "scripts": {
     "start": "vite"
-  }
+  },
+  "build": "vite build"
 }
