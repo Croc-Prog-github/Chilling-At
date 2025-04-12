@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,7 @@
   <meta name="keywords" content="Chill, Relax, Ambiance, Nature, Soundboard">
   <meta name="theme-color" content="#000000">
 
-
   <!-- script -->
-
 
   <!-- Emoji -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,17 +24,17 @@
   <div style="display: flex;">
     <slidebar style="display: flex; flex-direction: column; width: 3%; max-width: max-content; min-width: 37px;">
       <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
-        <img class="icons" src="/assets/icons/place.svg" alt="Space" style="padding-inline: 6px; padding-block: 3px;">
-        <img class="icons" src="/assets/icons/sound.svg" alt="Sound" style="padding-inline: 6px; padding-block: 3px;">
-        <img class="icons" src="/assets/icons/apps.svg" alt="Apps" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/icons/place.svg" alt="Space" title="Spaces" onclick="Pannel('Space')" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/icons/sound.svg" alt="Sound" title="Sounds" onclick="Pannel('Sound')" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/icons/apps.svg" alt="Apps" title="Apps" onclick="Pannel('Apps')" style="padding-inline: 6px; padding-block: 3px;">
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; margin-top: 5px;">
         <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
       </div>
     </slidebar>
-    <div style="width: 22%; height: 670px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
+    <div id="menu" style="width: 22%; height: 670px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
       <div style="overflow-y: auto; height: -webkit-fill-available; overflow-x: hidden;">
-        <div id="scenery">
+        <div id="scenery" style="display: block;">
           <h3>Scenery</h3>
           <p hidden>
             <strong>Scenery's Audio</strong>
@@ -68,7 +66,7 @@
             </details>
           </div>
         </div>
-        <div id="soundboard">
+        <div id="soundboard" style="display: none;">
           <h3>Soundboard</h3>
           <p hidden>
             <strong>Space's Audio</strong>
@@ -78,8 +76,8 @@
             <strong>Radio</strong>
             <!-- <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly> -->
             <select style="width: 100%;">
-              <option value="suzume_lofi">suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
-              <option value="LofiHipHop_LofiGirl">https://youtu.be/jfKfPfyJRdk</option>
+              <option value="suzume_lofi">Suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
+              <option value="LofiHipHop_LofiGirl" selected>Lofi HipHop (https://youtu.be/jfKfPfyJRdk)</option>
               <option value="ChillHop">ChillHop Radio</option>
             </select>
             <input type="range" min="0" max="100" value="50" style="width: 100%;">
@@ -110,6 +108,12 @@
                 <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
                 <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
               </div>
+
+              <div style="overflow-x: hidden;">
+                <span><emoji>📱</emoji>Digital tel keyboard</span>
+                <audio src="/assets/audio/digital_keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+              </div>
   
               <div style="overflow-x: hidden;">
                 <span><emoji>🍃</emoji>Soft wind</span>
@@ -133,6 +137,46 @@
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
+<script>
+  function Pannel(pannel) {
+    var scenery = document.getElementById('scenery');
+    var soundboard = document.getElementById('soundboard');
+    var menu = document.getElementById('menu');
+
+    if (pannel === 'Space') {
+      if (scenery.style.display === 'none') {
+        scenery.style.display = 'block';
+        soundboard.style.display = 'none';
+        //app.style.display = 'none';
+      } else if (scenery.style.display === 'block') {
+        scenery.style.display = 'none';
+        soundboard.style.display = 'none';
+        //app.style.display = 'none';
+      }
+    } else if (pannel === 'Sound') {
+      if (soundboard.style.display === 'none') {
+        scenery.style.display = 'none';
+        soundboard.style.display = 'block';
+        //app.style.display = 'none';
+      } else if (soundboard.style.display === 'block') {
+        scenery.style.display = 'none';
+        soundboard.style.display = 'none';
+        //app.style.display = 'none';
+      }
+    } else if (pannel === 'Apps') {
+      scenery.style.display = 'none';
+      soundboard.style.display = 'none';
+      //app.style.display = 'block';
+    }
+
+    if (scenery.style.display === 'none' && soundboard.style.display === 'none') {
+      menu.style.display = 'none';
+    } else {
+      menu.style.display = 'block';
+    }
+  }
+</script>
 
 <script>
   function ChangeBackground(src) {
