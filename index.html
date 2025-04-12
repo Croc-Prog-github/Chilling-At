@@ -63,7 +63,7 @@
               <div style="display: flex; flex-wrap: wrap;">
                 <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky" class="SceneryIcons">
                 <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky" class="SceneryIcons">
-                <img src="https://i.ytimg.com/vi/zTK9DhM6OQc/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBMgKih_MA8=&rs=AOn4CLDW6T-43ArPFOdpOKwT3fvmpJLBcg" alt="Sky" class="SceneryIcons_Video">
+                <img src="https://i.ytimg.com/vi/zTK9DhM6OQc/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBMgKih_MA8=&rs=AOn4CLDW6T-43ArPFOdpOKwT3fvmpJLBcg" alt="Sky" class="SceneryIcons_Video" ::after>
               </div>
             </details>
           </div>
@@ -113,10 +113,9 @@
   </div>
 
   <div id="background">
-    <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;" hidden>
-    
+    <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;" >
     <div id="player" name="youtube API">
-      <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0"></iframe>
+      <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" hidden></iframe>
     <!-- allowfullscreen -->
     </div>    
   </div>
@@ -176,6 +175,19 @@
     width: 48%;
     border-radius: 10px;
     padding: 1%;
+    position: relative;
+  }
+  .SceneryIcons_Video::after {
+    content: '\25B6'; /* Unicode for play symbol */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: white;
+    text-shadow: 0 0 5px black;
+    pointer-events: none;
+    z-index: 1;
   }
 
   emoji {
@@ -214,16 +226,16 @@
     margin-block: 2px;
   }
 
-  #player > iframe {
+  #player > iframe, #player {
     position: absolute;
     position-area: center;
     z-index: -1;
     /* object-fit: cover; */
     pointer-events: none;
-    zoom: 5;
-    color: transparent;
+    zoom: 2;
+    max-width: 1280px;
   }
-  .background > img {
+  #background > img {
     position: absolute;
     top: 0;
     left: 0;
