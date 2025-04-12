@@ -24,7 +24,7 @@
         <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
       </div>
     </slidebar>
-    <div style="width: 18%; min-width: 120px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
+    <div style="width: 32%; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
       <div>
         <h3>Scenery</h3>
         <p>
@@ -36,9 +36,9 @@
           <details open>
             <summary>Nature & forest</summary>
             <div style="display: flex; flex-wrap: wrap;">
-              <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" style="width: 50%; height: 100%; border-radius: 10px; padding: 2px;">
-              <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" style="width: 50%; height: 100%; border-radius: 10px; padding: 2px;">
-              <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" style="width: 50%; height: 100%; border-radius: 10px; padding: 2px;">
+              <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons">
+              <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons">
+              <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons">
               <img src="" alt="Nature & forest" style="width: 100%; height: auto; border-radius: 10px;">
               <img src="" alt="Nature & forest" style="width: 100%; height: auto; border-radius: 10px;">
             </div>
@@ -60,7 +60,7 @@
           <strong>Ambiance</strong>
           <div>
             <div style="overflow-x: hidden;">
-              <span><emoji>🌧️</emoji> Rain of out</span>
+              <span><emoji>☔</emoji> Soft rain out</span>
               <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
               <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
             </div>
@@ -74,6 +74,12 @@
             <div style="overflow-x: hidden;">
               <span><emoji>⌨️</emoji> Keyboard</span>
               <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+            </div>
+
+            <div style="overflow-x: hidden;">
+              <span><emoji>🌧️</emoji> Deep rain indoor</span>
+              <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
               <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
             </div>
           </div>
@@ -95,11 +101,17 @@
   @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Life+Savers:wght@400;800&display=swap');
 
   body {
-    font-family: 'Fuzzy Bubbles', cursive, 'Life Savers', cursive;
+    font-family: 'Fuzzy Bubbles', 'Life Savers', cursive;
     font-weight: normal;
   }
   h3 {
     margin-block: 5px
+  }
+
+  .SceneryIcons {
+    width: 48%;
+    border-radius: 10px;
+    padding: 1%;
   }
 
   emoji {
