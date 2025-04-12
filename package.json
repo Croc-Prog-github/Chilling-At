@@ -1,9 +1,16 @@
 {
+  "name": "starter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "publish": "vite --host",
+    "start": "npm install && npm run npx",
+    "npx": "npx vite"
+  },
   "dependencies": {
     "vite": "^6.2.6"
-  },
-  "scripts": {
-    "start": "npx vite",
-    "build": "vite build"
   }
 }
