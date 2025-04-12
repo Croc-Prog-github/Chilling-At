@@ -24,78 +24,80 @@
         <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
       </div>
     </slidebar>
-    <div style="width: 32%; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
-      <div>
-        <h3>Scenery</h3>
-        <p>
-          <strong>Scenery's Audio</strong>
-          <input type="range" min="0" max="100" value="0" style="width: 100%;">
-          <input type="search" placeholder="Search..." style="width: 100%; padding: 2px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 5px;">
-        </p>
+    <div style="width: 32%; height: 670px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
+      <div style="overflow-y: auto; height: -webkit-fill-available; overflow-x: hidden;">
         <div>
-          <details open>
-            <summary>Nature & forest</summary>
-            <div style="display: flex; flex-wrap: wrap;">
-              <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt="Nature & forest" class="SceneryIcons">
-              <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons">
-              <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons">
-              <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons">
-              <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons">
-              <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons">
-              <img src="" alt="Nature & forest" class="SceneryIcons">
-              <img src="" alt="Nature & forest" class="SceneryIcons">
-            </div>
-          </details>
-
-          <details>
-            <summary>Sky</summary>
-            <div style="display: flex; flex-wrap: wrap;">
-              <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky" class="SceneryIcons">
-              <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky" class="SceneryIcons">
-              <img src="" alt="Sky" class="SceneryIcons">
-            </div>
-          </details>
-        </div>
-      </div>
-      <div>
-        <h3>Soundboard</h3>
-        <p hidden>
-          <strong>Space's Audio</strong>
-          <input type="range" min="0" max="100" value="50" style="width: 100%;">
-        </p>
-        <p>
-          <strong>Radio</strong>
-          <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly style="width: 94%;">
-          <input type="range" min="0" max="100" value="50" style="width: 100%;">
-        </p>
-        <p>
-          <strong>Ambiance</strong>
+          <h3>Scenery</h3>
+          <p>
+            <strong>Scenery's Audio</strong>
+            <input type="range" min="0" max="100" value="0" style="width: 100%;">
+            <input type="search" placeholder="Search..." style="width: 100%; padding: 2px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 5px;">
+          </p>
           <div>
-            <div style="overflow-x: hidden;">
-              <span><emoji>☔</emoji>Soft rain out</span>
-              <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-            </div>
-
-            <div style="overflow-x: hidden;">
-              <span><emoji>🌧️</emoji>Deep rain indoor</span>
-              <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-            </div>
-
-            <div style="overflow-x: hidden;">
-              <span><emoji>🔥</emoji>Fire</span>
-              <audio src="/assets/audio/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-            </div>
-
-            <div style="overflow-x: hidden;">
-              <span><emoji>⌨️</emoji>Keyboard</span>
-              <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-              <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-            </div>
-
+            <details open>
+              <summary>Nature & forest</summary>
+              <div style="display: flex; flex-wrap: wrap;">
+                <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt="Nature & forest" class="SceneryIcons">
+                <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons">
+                <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons">
+                <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons">
+                <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons">
+                <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons">
+                <img src="" alt="Nature & forest" class="SceneryIcons">
+                <img src="" alt="Nature & forest" class="SceneryIcons">
+              </div>
+            </details>
+  
+            <details>
+              <summary>Sky</summary>
+              <div style="display: flex; flex-wrap: wrap;">
+                <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky" class="SceneryIcons">
+                <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky" class="SceneryIcons">
+                <img src="" alt="Sky" class="SceneryIcons">
+              </div>
+            </details>
           </div>
+        </div>
+        <div>
+          <h3>Soundboard</h3>
+          <p hidden>
+            <strong>Space's Audio</strong>
+            <input type="range" min="0" max="100" value="50" style="width: 100%;">
+          </p>
+          <p>
+            <strong>Radio</strong>
+            <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly style="width: 94%;">
+            <input type="range" min="0" max="100" value="50" style="width: 100%;">
+          </p>
+          <p>
+            <strong>Ambiance</strong>
+            <div>
+              <div style="overflow-x: hidden;">
+                <span><emoji>☔</emoji>Soft rain out</span>
+                <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+              </div>
+  
+              <div style="overflow-x: hidden;">
+                <span><emoji>🌧️</emoji>Deep rain indoor</span>
+                <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+              </div>
+  
+              <div style="overflow-x: hidden;">
+                <span><emoji>🔥</emoji>Fire</span>
+                <audio src="/assets/audio/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+              </div>
+  
+              <div style="overflow-x: hidden;">
+                <span><emoji>⌨️</emoji>Keyboard</span>
+                <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+              </div>
+  
+            </div>
+        </div>
       </div>
     </div>
   </div>
