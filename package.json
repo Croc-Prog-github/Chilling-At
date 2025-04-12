@@ -4,6 +4,6 @@
   },
   "scripts": {
     "start": "npx vite",
-    "build": "vite build"
+    "build": "npm run build"
   }
 }
