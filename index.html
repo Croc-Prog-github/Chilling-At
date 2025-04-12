@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chill at</title>
 
+  <!-- meta -->
+  <meta name="description" content="Chill at - A place to relax and enjoy the ambiance.">
+  <meta name="author" content="Croc-Prog-github">
+  <meta name="keywords" content="Chill, Relax, Ambiance, Nature, Soundboard">
+  <meta name="theme-color" content="#000000">
+
+
+  <!-- script -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <!-- Emoji -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,15 +112,48 @@
     </div>
   </div>
 
-  <div id="desk">
-    <img id="background" src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;">
-    <video src="" hidden></video>
+  <div id="background">
+    <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;" hidden>
+    
+    <div id="player" name="youtube API">
+      <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0"></iframe>
+    <!-- allowfullscreen -->
+    </div>    
   </div>
 </body>
 </html>
 
 <script>
   document.querySelectorAll('audio').forEach(audio => audio.volume = 0.0);
+</script>
+
+<script>
+  var player;
+
+  // Quando l'API di YouTube è pronta
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      videoId: 'zTK9DhM6OQc',  // ID del video YouTube
+      playerVars: {
+        autoplay: 1,       // Avvia automaticamente
+        mute: 1,           // Muto all'inizio
+        controls: 0,       // Nasconde i controlli
+        loop: 1,           // Fa loop
+        modestbranding: 1, // Nasconde il logo di YouTube
+        rel: 0,            // Nasconde i video correlati alla fine
+        showinfo: 0,       // Nasconde il titolo e l'autore del video
+        fs: 0,             // Nasconde il pulsante di fullscreen
+        iv_load_policy: 3, // Nasconde i sottotitoli e le annotazioni
+        cc_load_policy: 0  // Nasconde i sottotitoli
+      },
+      events: {
+        onReady: function(event) {
+          // Gestisci il video quando è pronto
+          event.target.playVideo();
+        }
+      }
+    });
+  }
 </script>
 
 <style>
@@ -166,16 +209,16 @@
     margin-block: 2px;
   }
 
-  #background {
+  #player > iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position-area: center;
     z-index: -1;
-    object-fit: cover;
+    /* object-fit: cover; */
+    pointer-events: none;
+    zoom: 5;
+    color: transparent;
   }
-  .background > video {
+  .background > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -183,5 +226,6 @@
     height: 100%;
     z-index: -1;
     object-fit: cover;
+    pointer-events: none;
   }
 </style>
