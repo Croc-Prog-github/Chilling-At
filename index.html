@@ -220,9 +220,15 @@
         calendar.style.display = 'none';
       }
     } else if (pannel === 'Calendar') {
-      scenery.style.display = 'none';
-      soundboard.style.display = 'none';
-      calendar.style.display = 'block';
+      if (calendar.style.display === 'none') {
+        scenery.style.display = 'none';
+        soundboard.style.display = 'none';
+        calendar.style.display = 'block';
+      } else if (calendar.style.display === 'block') {
+        scenery.style.display = 'none';
+        soundboard.style.display = 'none';
+        calendar.style.display = 'none';
+      }
     }
 
 
