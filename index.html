@@ -73,8 +73,10 @@
                 <img src="https://i.pinimg.com/originals/28/86/71/2886713deb0207537e144acfd85b8eaa.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
                 <img src="https://community.adobe.com/t5/image/serverpage/image-id/62387i88E258CC27F30FF0/image-size/large?v=v2&px=999" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
                 <img src="https://i.gifer.com/StEb.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://t3hz0r.com/post/photoshop-smoothly-looping-gif-tutorial/crossfade_method.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.imgur.com/yB0rP0s.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/52/a0/18/52a018a9981b1908678d9aa3b82d6445.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                <img src="https://i.pinimg.com/originals/ce/33/4f/ce334f7f6b259c77c49ac1a0fa931102.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
                 <img src="" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
                 <img src="" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
               </div>
@@ -203,6 +205,8 @@
     var background = document.querySelector('#background > img');
     if (background) {
       background.src = src;
+    } else {
+      background.alt = "The background don't found, please try with another imagine.";
     }
   }
 </script>
@@ -267,7 +271,11 @@
     border-radius: 10px;
     margin: 1%;
     cursor: pointer;
+    min-height: 62.16px;
+    aspect-ratio: 117.6 / 66.2;
+    object-fit: cover;
   }
+
   .SceneryIcons_Video {
     width: 48%;
     border-radius: 10px;
