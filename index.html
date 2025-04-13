@@ -26,7 +26,7 @@
       <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
         <img class="icons" src="/assets/icons/place.svg" alt="Space" title="Spaces" onclick="Pannel('Space')" style="padding-inline: 6px; padding-block: 3px;">
         <img class="icons" src="/assets/icons/sound.svg" alt="Sound" title="Sounds" onclick="Pannel('Sound')" style="padding-inline: 6px; padding-block: 3px;">
-        <img class="icons" src="/assets/icons/apps.svg" alt="Apps" title="Apps" onclick="Pannel('Apps')" style="padding-inline: 6px; padding-block: 3px;">
+        <img class="icons" src="/assets/icons/calendar.svg" alt="calendar" title="Calendar" onclick="Pannel('Calendar')" style="padding-inline: 6px; padding-block: 3px;">
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; margin-top: 5px;">
         <img src="" alt="Ice Cream" style="padding-inline: 7px; padding-block: 2px;">
@@ -115,6 +115,7 @@
             </details>
           </div>
         </div>
+
         <div id="soundboard" style="display: none;">
           <h3>Soundboard</h3>
           <p hidden>
@@ -171,6 +172,10 @@
               </div>
             </div>
         </div>
+
+        <div id="calendar" style="display: none;">
+          <h3>Calendar</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -191,35 +196,37 @@
   function Pannel(pannel) {
     var scenery = document.getElementById('scenery');
     var soundboard = document.getElementById('soundboard');
+    var calendar = document.getElementById('calendar');
     var menu = document.getElementById('menu');
 
     if (pannel === 'Space') {
       if (scenery.style.display === 'none') {
         scenery.style.display = 'block';
         soundboard.style.display = 'none';
-        //app.style.display = 'none';
+        calendar.style.display = 'none';
       } else if (scenery.style.display === 'block') {
         scenery.style.display = 'none';
         soundboard.style.display = 'none';
-        //app.style.display = 'none';
+        calendar.style.display = 'none';
       }
     } else if (pannel === 'Sound') {
       if (soundboard.style.display === 'none') {
         scenery.style.display = 'none';
         soundboard.style.display = 'block';
-        //app.style.display = 'none';
+        calendar.style.display = 'none';
       } else if (soundboard.style.display === 'block') {
         scenery.style.display = 'none';
         soundboard.style.display = 'none';
-        //app.style.display = 'none';
+        calendar.style.display = 'none';
       }
-    } else if (pannel === 'Apps') {
+    } else if (pannel === 'Calendar') {
       scenery.style.display = 'none';
       soundboard.style.display = 'none';
-      //app.style.display = 'block';
+      calendar.style.display = 'block';
     }
 
-    if (scenery.style.display === 'none' && soundboard.style.display === 'none') {
+
+    if (scenery.style.display === 'none' && soundboard.style.display === 'none' && calendar.style.display === 'none') {
       menu.style.display = 'none';
     } else {
       menu.style.display = 'block';
