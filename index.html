@@ -52,7 +52,6 @@
                 <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
                 <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
                 <img src="" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
               </div>
             </details>
   
@@ -226,6 +225,14 @@
       menu.style.display = 'block';
     }
   }
+  document.addEventListener('click', function(event) {
+    if (!event.target.classList.contains('icons') && !event.target.closest('#menu')) {
+      scenery.style.display = 'none';
+      soundboard.style.display = 'none';
+      menu.style.display = 'none';
+      //app.style.display = 'none';
+    }
+  });
 </script>
 
 <script>
@@ -302,6 +309,10 @@
     min-height: 62.16px;
     aspect-ratio: 117.6 / 66.2;
     object-fit: cover;
+
+    image-rendering: pixelated; /* Optimize for speed by reducing quality */
+    will-change: transform; /* Optimize rendering performance */
+    transform: translateZ(0); /* Enable GPU acceleration */
   }
 
   .SceneryIcons_Video {
