@@ -202,7 +202,7 @@
             <hr>
             Seleziona un evento per vedere i dettagli.
             <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5px;">
-              <div style="display: flex; flex-direction: column; align-items: center; width: -webkit-fill-available;">
+              <div style="display: flex; flex-direction: column; /*align-items: center;*/ width: -webkit-fill-available;">
                 <span>Event Name</span>
                 <span>Event Description</span>
                 <span>Event Date</span>
@@ -271,16 +271,16 @@
       }
     });
 
-    // Generate Calendar Functions----------------------------------
+    // Funzioni per generare il calendario----------------------------------
     async function generateCalendar(year, month) {
-      calendarEl.innerHTML = ""; // Clear previous calendar
+      calendarEl.innerHTML = ""; // Cancella il calendario precedente
 
       const holidays = await fetchNationalHolidays(year);
 
       var firstDay = new Date(year, month, 1).getDay();
       var daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      // Create header
+      // Crea l'intestazione
       var header = document.createElement('div');
       header.style.textAlign = 'center';
       header.style.marginBottom = '10px';
@@ -290,6 +290,7 @@
       var prevButton = document.createElement('span');
       prevButton.textContent = '<-';
       prevButton.style.cursor = 'pointer';
+      prevButton.classList.add('arrow');
       prevButton.onclick = function () {
         currentMonth--;
         if (currentMonth < 0) {
@@ -302,6 +303,7 @@
       var nextButton = document.createElement('span');
       nextButton.textContent = '->';
       nextButton.style.cursor = 'pointer';
+      nextButton.classList.add('arrow');
       nextButton.onclick = function () {
         currentMonth++;
         if (currentMonth > 11) {
@@ -320,7 +322,7 @@
 
       calendarEl.appendChild(header);
 
-      // Create days of the week
+      // Crea i giorni della settimana
       var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       var daysRow = document.createElement('div');
       daysRow.style.display = 'flex';
@@ -336,41 +338,48 @@
       });
       calendarEl.appendChild(daysRow);
 
-      // Create calendar grid
+      // Crea la griglia del calendario
       var grid = document.createElement('div');
       grid.style.display = 'grid';
       grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
       grid.style.gap = '1px';
 
-      // Add empty slots for days before the first day of the month
+      // Aggiungi spazi vuoti per i giorni prima del primo giorno del mese
       for (var i = 0; i < firstDay; i++) {
       var emptySlot = document.createElement('div');
       emptySlot.style.height = '40px';
       grid.appendChild(emptySlot);
       }
 
-      // Add days of the month
+      // Aggiungi i giorni del mese
       for (var day = 1; day <= daysInMonth; day++) {
-      var daySlot = document.createElement('div');
-      daySlot.style.height = '40px';
-      daySlot.style.textAlign = 'center';
-      daySlot.style.lineHeight = '40px';
-      daySlot.style.border = '1px solid #ccc';
-      daySlot.textContent = day;
+        var daySlot = document.createElement('div');
+        daySlot.style.height = '40px';
+        daySlot.style.textAlign = 'center';
+        daySlot.style.lineHeight = '40px';
+        daySlot.style.border = '1px solid #ccc';
+        daySlot.textContent = day;
 
-      // Check if the day is a holiday
-      if (holidays.some(holiday => holiday.day === day && holiday.month === month && holiday.year === year)) {
-        daySlot.style.textDecoration = 'underline red';
-      }
+        // Controlla se il giorno è una festività
+        if (holidays.some(holiday => holiday.day === day && holiday.month === month && holiday.year === year)) {
+          daySlot.style.textDecoration = 'underline red';
+        }
 
-      grid.appendChild(daySlot);
+        // Controlla se il giorno è oggi
+        if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+          daySlot.style.textDecoration = 'underline';
+          daySlot.style.textDecorationStyle = 'double';
+          daySlot.style.textDecorationColor = 'dodgerblue';
+        }
+
+        grid.appendChild(daySlot);
       }
 
       calendarEl.appendChild(grid);
     }
 
-    function generateDailyView() {  //Genera e posiziona la vista giornaliera
-      calendarEl.innerHTML = ""; // Clear previous view
+    function generateDailyView() {  // Genera e posiziona la vista giornaliera
+      calendarEl.innerHTML = ""; // Cancella la vista precedente
       var header = document.createElement('div');
       header.style.textAlign = 'center';
       header.style.marginBottom = '10px';
@@ -388,8 +397,8 @@
       });
     }
 
-    function generateWeeklyView() { //Genera e posiziona la vista settimanale
-      calendarEl.innerHTML = ""; // Clear previous view
+    function generateWeeklyView() { // Genera e posiziona la vista settimanale
+      calendarEl.innerHTML = ""; // Cancella la vista precedente
       var header = document.createElement('div');
       header.style.textAlign = 'center';
       header.style.marginBottom = '10px';
@@ -415,8 +424,8 @@
       calendarEl.appendChild(grid);
     }
 
-    function generateYearlyView(year) {  //Genera e posiziona la vista annuale
-      calendarEl.innerHTML = ""; // Clear previous view
+    function generateYearlyView(year) {  // Genera e posiziona la vista annuale
+      calendarEl.innerHTML = ""; // Cancella la vista precedente
       var header = document.createElement('div');
       header.style.textAlign = 'center';
       header.style.marginBottom = '10px';
@@ -426,7 +435,7 @@
       var grid = document.createElement('div');
       grid.style.display = 'grid';
       var parentWidth = calendarEl.offsetWidth;
-      var columns = Math.floor(parentWidth / 150); // Adjust 150px as the minimum width for a column
+      var columns = Math.floor(parentWidth / 150); // Regola 150px come larghezza minima per una colonna
       grid.style.gridTemplateColumns = `repeat(${columns}, ${100 / columns}%)`;
       grid.style.gap = '10px';
 
@@ -493,8 +502,9 @@
       menu.style.display = 'block';
     }
   }
+
   document.addEventListener('click', function(event) {
-    if (!event.target.classList.contains('icons') && !event.target.closest('#menu')) {
+    if (!event.target.closest('.icons') && !event.target.closest('.arrow') && !event.target.closest('#menu') && !menu.contains(event.target)) {
       scenery.style.display = 'none';
       soundboard.style.display = 'none';
       menu.style.display = 'none';
