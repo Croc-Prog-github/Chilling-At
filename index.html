@@ -388,12 +388,29 @@
       calendarEl.appendChild(header);
 
       var hours = Array.from({ length: 24 }, (_, i) => `${i}:00`);
-      hours.forEach(hour => {
+      var currentHour = today.getHours();
+
+      hours.forEach((hour, index) => {
       var hourSlot = document.createElement('div');
       hourSlot.style.border = '1px solid #ccc';
       hourSlot.style.height = '40px';
       hourSlot.style.lineHeight = '40px';
+      hourSlot.style.position = 'relative';
       hourSlot.textContent = hour;
+
+      // Aggiungi una linea per l'orario attuale
+      if (index === currentHour) {
+        var currentTimeLine = document.createElement('div');
+        currentTimeLine.style.position = 'absolute';
+        currentTimeLine.style.top = '50%';
+        currentTimeLine.style.left = '0';
+        currentTimeLine.style.width = '100%';
+        currentTimeLine.style.height = '2px';
+        currentTimeLine.style.backgroundColor = 'dodgerblue';
+        currentTimeLine.style.transform = 'translateY(-50%)';
+        hourSlot.appendChild(currentTimeLine);
+      }
+
       calendarEl.appendChild(hourSlot);
       });
     }
