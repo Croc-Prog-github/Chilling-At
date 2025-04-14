@@ -182,13 +182,17 @@
 
         <div id="calendar" style="display: none;">
           <h3>Calendar</h3>
-          <select id="viewSelector" style="width: 100%; margin-bottom: 10px;">
-            <option value="monthly" selected>Monthly View</option>
-            <option value="daily">Daily View</option>
-            <option value="weekly">Weekly View</option>
-            <option value="yearly">Yearly View</option>
-          </select>
-          <div id="calendarAPI" style="height: -webkit-fill-available;"></div>
+          <div style="display: flex; margin-bottom: 10px;">
+            <select id="viewSelector" style="width: -webkit-fill-available;">
+              <option value="daily">Daily View</option>
+              <option value="weekly" hidden>Weekly View</option>
+              <option value="monthly" selected>Monthly View</option>
+              <option value="yearly">Yearly View</option>
+            </select>
+            <button title="Aggiungi evento">+</button>
+          </div>
+          
+          <div id="calendarAPI" style="height: -webkit-fill-available; user-select: none; cursor: default;"></div>
         </div>
       </div>
     </div>
@@ -220,7 +224,7 @@
       "July", "August", "September", "October", "November", "December"
     ];
 
-    var viewSelector = document.querySelector('#viewSelector');
+    var viewSelector = document.getElementById('viewSelector');
     viewSelector.addEventListener('change', function () {
       switch (this.value) {
       case 'daily':
@@ -236,7 +240,6 @@
         generateCalendar(currentYear, currentMonth);
       }
     });
-    calendarEl.parentElement.insertBefore(viewSelector, calendarEl);
 
     // Generate Calendar Functions----------------------------------
     function generateCalendar(year, month) {
