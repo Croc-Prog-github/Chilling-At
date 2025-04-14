@@ -182,17 +182,34 @@
 
         <div id="calendar" style="display: none;">
           <h3>Calendar</h3>
-          <div style="display: flex; margin-bottom: 10px;">
-            <select id="viewSelector" style="width: -webkit-fill-available;">
+          <div style="display: flex; align-items: center; margin-bottom: 10px; width: -webkit-fill-available;">
+            <select id="viewSelector" style="width: -webkit-fill-available; height: fit-content;">
               <option value="daily">Daily View</option>
               <option value="weekly" hidden>Weekly View</option>
               <option value="monthly" selected>Monthly View</option>
               <option value="yearly">Yearly View</option>
             </select>
-            <button title="Aggiungi evento">+</button>
+            <div style="display: flex;">
+              <img src="/assets/icons/add-event.svg" alt="Add-Event">
+            </div>
+
+            <!-- css per festivi ed eventi: text-decoration: underline double red; -->
           </div>
           
           <div id="calendarAPI" style="height: -webkit-fill-available; user-select: none; cursor: default;"></div>
+          
+          <div>
+            <hr>
+            Seleziona un evento per vedere i dettagli.
+            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5px;">
+              <div style="display: flex; flex-direction: column; align-items: center; width: -webkit-fill-available;">
+                <span>Event Name</span>
+                <span>Event Description</span>
+                <span>Event Date</span>
+                <span>Event Time</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -214,7 +231,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendarAPI');
 
-    // View Selector Logic
+    // Dichiarazione delle variabili e cambiamento della vista
     var today = new Date();
     var currentMonth = today.getMonth();
     var currentYear = today.getFullYear();
