@@ -182,6 +182,12 @@
 
         <div id="calendar" style="display: none;">
           <h3>Calendar</h3>
+          <select id="viewSelector" style="width: 100%; margin-bottom: 10px;">
+            <option value="monthly" selected>Monthly View</option>
+            <option value="daily">Daily View</option>
+            <option value="weekly">Weekly View</option>
+            <option value="yearly">Yearly View</option>
+          </select>
           <div id="calendarAPI" style="height: -webkit-fill-available;"></div>
         </div>
       </div>
@@ -200,11 +206,11 @@
 </body>
 </html>
 
-<script> //Calendar
+<script> //Calendar script (generation & changing)
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendarAPI');
 
-    // Generate a simple static calendar
+    // View Selector Logic
     var today = new Date();
     var currentMonth = today.getMonth();
     var currentYear = today.getFullYear();
@@ -214,6 +220,25 @@
       "July", "August", "September", "October", "November", "December"
     ];
 
+    var viewSelector = document.querySelector('#viewSelector');
+    viewSelector.addEventListener('change', function () {
+      switch (this.value) {
+      case 'daily':
+        generateDailyView();
+        break;
+      case 'weekly':
+        generateWeeklyView();
+        break;
+      case 'yearly':
+        generateYearlyView(currentYear);
+        break;
+      default:
+        generateCalendar(currentYear, currentMonth);
+      }
+    });
+    calendarEl.parentElement.insertBefore(viewSelector, calendarEl);
+
+    // Generate Calendar Functions----------------------------------
     function generateCalendar(year, month) {
       calendarEl.innerHTML = ""; // Clear previous calendar
 
@@ -270,7 +295,7 @@
       calendarEl.appendChild(grid);
     }
 
-    function generateDailyView() {
+    function generateDailyView() {  //Genera e posiziona la vista giornaliera
       calendarEl.innerHTML = ""; // Clear previous view
       var header = document.createElement('div');
       header.style.textAlign = 'center';
@@ -289,7 +314,7 @@
       });
     }
 
-    function generateWeeklyView() {
+    function generateWeeklyView() { //Genera e posiziona la vista settimanale
       calendarEl.innerHTML = ""; // Clear previous view
       var header = document.createElement('div');
       header.style.textAlign = 'center';
@@ -316,7 +341,7 @@
       calendarEl.appendChild(grid);
     }
 
-    function generateYearlyView(year) {
+    function generateYearlyView(year) {  //Genera e posiziona la vista annuale
       calendarEl.innerHTML = ""; // Clear previous view
       var header = document.createElement('div');
       header.style.textAlign = 'center';
@@ -343,32 +368,6 @@
 
       calendarEl.appendChild(grid);
     }
-
-    // Add view selector
-    var viewSelector = document.createElement('select');
-    viewSelector.style.marginBottom = '10px';
-    viewSelector.innerHTML = `
-      <option value="monthly" selected>Monthly</option>
-      <option value="daily">Daily</option>
-      <option value="weekly">Weekly</option>
-      <option value="yearly">Yearly</option>
-    `;
-    viewSelector.addEventListener('change', function () {
-      switch (this.value) {
-        case 'daily':
-          generateDailyView();
-          break;
-        case 'weekly':
-          generateWeeklyView();
-          break;
-        case 'yearly':
-          generateYearlyView(currentYear);
-          break;
-        default:
-          generateCalendar(currentYear, currentMonth);
-      }
-    });
-    calendarEl.parentElement.insertBefore(viewSelector, calendarEl);
 
     generateCalendar(currentYear, currentMonth);
   });
