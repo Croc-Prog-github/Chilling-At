@@ -111,6 +111,10 @@
               </div>
             </details>
 
+            <details>
+              <summary>Abstract</summary>
+            </details>
+
             <details hidden>
               <summary>Videos</summary>
               <img src="https://i.ytimg.com/vi/zTK9DhM6OQc/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBMgKih_MA8=&rs=AOn4CLDW6T-43ArPFOdpOKwT3fvmpJLBcg" alt="Sky" class="SceneryIcons_Video">
@@ -198,16 +202,175 @@
 
 <script> //Calendar
   document.addEventListener('DOMContentLoaded', function () {
-  var calendarEl = document.getElementById('calendarAPI');
+    var calendarEl = document.getElementById('calendarAPI');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      events: [
-        { title: 'Evento 1', start: '2025-04-14' },
-        { title: 'Evento 2', start: '2025-04-16' }
-      ]
+    // Generate a simple static calendar
+    var today = new Date();
+    var currentMonth = today.getMonth();
+    var currentYear = today.getFullYear();
+
+    var monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    function generateCalendar(year, month) {
+      calendarEl.innerHTML = ""; // Clear previous calendar
+
+      var firstDay = new Date(year, month, 1).getDay();
+      var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Create header
+      var header = document.createElement('div');
+      header.style.textAlign = 'center';
+      header.style.marginBottom = '10px';
+      header.innerHTML = `<strong>${monthNames[month]} ${year}</strong>`;
+      calendarEl.appendChild(header);
+
+      // Create days of the week
+      var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var daysRow = document.createElement('div');
+      daysRow.style.display = 'flex';
+      daysRow.style.justifyContent = 'space-between';
+      daysRow.style.fontWeight = 'bold';
+      daysRow.style.borderBottom = '1px solid #ccc';
+      daysOfWeek.forEach(day => {
+        var dayEl = document.createElement('div');
+        dayEl.style.flex = '1';
+        dayEl.style.textAlign = 'center';
+        dayEl.textContent = day;
+        daysRow.appendChild(dayEl);
+      });
+      calendarEl.appendChild(daysRow);
+
+      // Create calendar grid
+      var grid = document.createElement('div');
+      grid.style.display = 'grid';
+      grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+      grid.style.gap = '1px';
+
+      // Add empty slots for days before the first day of the month
+      for (var i = 0; i < firstDay; i++) {
+        var emptySlot = document.createElement('div');
+        emptySlot.style.height = '40px';
+        grid.appendChild(emptySlot);
+      }
+
+      // Add days of the month
+      for (var day = 1; day <= daysInMonth; day++) {
+        var daySlot = document.createElement('div');
+        daySlot.style.height = '40px';
+        daySlot.style.textAlign = 'center';
+        daySlot.style.lineHeight = '40px';
+        daySlot.style.border = '1px solid #ccc';
+        daySlot.textContent = day;
+        grid.appendChild(daySlot);
+      }
+
+      calendarEl.appendChild(grid);
+    }
+
+    function generateDailyView() {
+      calendarEl.innerHTML = ""; // Clear previous view
+      var header = document.createElement('div');
+      header.style.textAlign = 'center';
+      header.style.marginBottom = '10px';
+      header.innerHTML = `<strong>${today.toDateString()}</strong>`;
+      calendarEl.appendChild(header);
+
+      var hours = Array.from({ length: 24 }, (_, i) => `${i}:00`);
+      hours.forEach(hour => {
+        var hourSlot = document.createElement('div');
+        hourSlot.style.border = '1px solid #ccc';
+        hourSlot.style.height = '40px';
+        hourSlot.style.lineHeight = '40px';
+        hourSlot.textContent = hour;
+        calendarEl.appendChild(hourSlot);
+      });
+    }
+
+    function generateWeeklyView() {
+      calendarEl.innerHTML = ""; // Clear previous view
+      var header = document.createElement('div');
+      header.style.textAlign = 'center';
+      header.style.marginBottom = '10px';
+      header.innerHTML = `<strong>Week of ${today.toDateString()}</strong>`;
+      calendarEl.appendChild(header);
+
+      var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var grid = document.createElement('div');
+      grid.style.display = 'grid';
+      grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+      grid.style.gap = '1px';
+
+      daysOfWeek.forEach(day => {
+        var daySlot = document.createElement('div');
+        daySlot.style.border = '1px solid #ccc';
+        daySlot.style.height = '40px';
+        daySlot.style.textAlign = 'center';
+        daySlot.style.lineHeight = '40px';
+        daySlot.textContent = day;
+        grid.appendChild(daySlot);
+      });
+
+      calendarEl.appendChild(grid);
+    }
+
+    function generateYearlyView(year) {
+      calendarEl.innerHTML = ""; // Clear previous view
+      var header = document.createElement('div');
+      header.style.textAlign = 'center';
+      header.style.marginBottom = '10px';
+      header.innerHTML = `<strong>${year}</strong>`;
+      calendarEl.appendChild(header);
+
+      var grid = document.createElement('div');
+      grid.style.display = 'grid';
+      var parentWidth = calendarEl.offsetWidth;
+      var columns = Math.floor(parentWidth / 150); // Adjust 150px as the minimum width for a column
+      grid.style.gridTemplateColumns = `repeat(${columns}, ${100 / columns}%)`;
+      grid.style.gap = '10px';
+
+      for (var month = 0; month < 12; month++) {
+        var monthDiv = document.createElement('div');
+        monthDiv.style.border = '1px solid rgb(204, 204, 204)';
+        monthDiv.style.textAlign = 'center';
+        monthDiv.style.alignContent = 'center';
+        monthDiv.style.padding = '5px';
+        monthDiv.innerHTML = `<strong>${monthNames[month]}</strong>`;
+        grid.appendChild(monthDiv);
+      }
+
+      calendarEl.appendChild(grid);
+    }
+
+    // Add view selector
+    var viewSelector = document.createElement('select');
+    viewSelector.style.marginBottom = '10px';
+    viewSelector.innerHTML = `
+      <option value="monthly" selected>Monthly</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="yearly">Yearly</option>
+    `;
+    viewSelector.addEventListener('change', function () {
+      switch (this.value) {
+        case 'daily':
+          generateDailyView();
+          break;
+        case 'weekly':
+          generateWeeklyView();
+          break;
+        case 'yearly':
+          generateYearlyView(currentYear);
+          break;
+        default:
+          generateCalendar(currentYear, currentMonth);
+      }
     });
-    calendar.render();
+    calendarEl.parentElement.insertBefore(viewSelector, calendarEl);
+
+    generateCalendar(currentYear, currentMonth);
   });
 </script>
 
