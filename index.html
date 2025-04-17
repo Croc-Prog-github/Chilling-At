@@ -52,6 +52,14 @@
             <input type="range" min="0" max="100" value="0" style="width: 100%;">
             <input type="search" placeholder="Search..." style="width: 100%; padding: 2px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 5px;">
           </p>
+          <p style="margin-block: 0; display: flex;">
+            <strong>Background fill</strong>
+            <div>
+              <span>Contain</span>
+                <input type="range" min="0" max="1" value="0" oninput="if(this.value == 1){document.getElementById('background_img').style.objectFit='contain'}else{document.getElementById('background_img').style.objectFit='cover'}" style="width: 30px; accent-color: auto;">
+              <span>Cover</span>
+            </div>
+          </p>
           <div>
             <details open>
               <summary>Nature & forest</summary>
@@ -254,7 +262,9 @@
   </div>
 
   <div id="background">
-    <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;">
+    <img id="background_img" src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;" style="z-index: -1;">
+    <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;" style="z-index: -2; filter: blur(10px); object-fit: cover;">
+
     <div id="player" name="youtube API iframe"></div>
     <!--
       <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" style="display: none;"></iframe>
@@ -327,11 +337,15 @@
 
 <script>
   function ChangeBackground(src) {
-    var background = document.querySelector('#background > img');
-    if (background) {
-      background.src = src;
+    var backgrounds = document.querySelectorAll('#background > img');
+    if (backgrounds.length > 0) {
+      backgrounds.forEach(background => {
+        background.src = src;
+      });
     } else {
-      background.alt = "The background don't found, please try with another imagine.";
+      backgrounds.forEach(background => {
+        background.alt = "The background don't found, please try with another imagine.";
+      });
     }
   }
 </script>
