@@ -236,7 +236,10 @@
             </select>
             <div style="display: flex;">
               <img src="/assets/icons/add-event.svg" alt="Add-Event">
-              <img src="/assets/icons/today.svg" alt="Todady">
+              
+              <div onclick="calendar.changeView('dayGridMonth'); calendar.gotoDate(new Date());">
+                <img src="/assets/icons/today.svg" alt="Today" style="cursor: pointer;">
+              </div>
             </div>
 
             <!-- css per festivi ed eventi: text-decoration: underline double red; -->
