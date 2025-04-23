@@ -183,13 +183,13 @@
               <!-- <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly> -->
               <select onchange="document.getElementById('radio_iframe').src = this.value" style="width: 100%;">
                 <option value="suzume_lofi" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
-                <option value="https://youtu.be/jfKfPfyJRdk" selected>Lofi HipHop (study/relax)</option>
-                <option value="https://youtube.com/live/7NOSDKb0HlU?feature=shared">ChillHop Radio beats (study/relax)</option>
-                <option value="https://youtu.be/4xDzrJKXOOY">Lofi Synthwave (chill/gaming)</option>
+                <option value="null">--OFF--</option>
+                <option value="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&controls=0" selected>Lofi HipHop (study/relax)</option>
+                <option value="https://www.youtube-nocookie.com/embed/7NOSDKb0HlU?autoplay=1&controls=0">ChillHop Radio beats (study/relax)</option>
+                <option value="https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?autoplay=1&controls=0">Lofi Synthwave (chill/gaming)</option>
                 <option value=""></option>
               </select>
-              <input type="range" min="0" max="100" value="50" style="width: 100%;">
-              <iframe id="radio_iframe" src="" frameborder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
+              <input type="range" min="0" max="100" value="50" style="width: 100%;" oninput="setYouTubeVolume(this.value);">
             </p>
             <p>
               <strong>Ambiance</strong>
@@ -231,6 +231,8 @@
                 </div>
               </div>
             </p>
+
+            <iframe id="radio_iframe" src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&controls=0" allow="autoplay; encrypted-media;" loading="lazy" style="opacity: 0; pointer-events: none;"></iframe>
           </div>
 
           <div id="calendar" style="display: none;">
@@ -328,6 +330,19 @@
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
+<script>//Controlla il volume di #radio_iframe da range
+  function setYouTubeVolume(volume) {
+    const iframe = document.getElementById('radio_iframe');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(JSON.stringify({
+        event: 'command',
+        func: 'setVolume',
+        args: [volume]
+      }), '*');
+    }
+  }
+</script>
 
 <script>//Rendere trascinabile il media player
   function makeMediaPlayerDraggable() {
