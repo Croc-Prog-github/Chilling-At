@@ -36,16 +36,16 @@
     <div style="display: flex; z-index: 1;">
       <slidebar style="display: flex; flex-direction: column; width: 3%; max-width: max-content; min-width: 37px; /*z-index: 0; position: relative;*/">
         <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
-          <img class="icons" src="/assets/icons/place.svg" alt="Space" title="Spaces" onclick="Pannel('Space')" style="padding-inline: 6px; padding-block: 3px;">
-          <img class="icons" src="/assets/icons/sound.svg" alt="Sound" title="Sounds" onclick="Pannel('Sound')" style="padding-inline: 6px; padding-block: 3px;">
-          <img class="icons" src="/assets/icons/calendar.svg" alt="calendar" title="Calendar" onclick="Pannel('Calendar')" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/place.svg" alt="🌍" title="Spaces" onclick="Pannel('Space')" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/sound.svg" alt="🔈" title="Sounds" onclick="Pannel('Sound')" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/calendar.svg" alt="📅" title="Calendar" onclick="Pannel('Calendar')" style="padding-inline: 6px; padding-block: 3px;">
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px; margin-top: 5px;">
-          <img class="icons" src="/assets/icons/Timer.svg" alt="Timer" title="Timer" style="padding-inline: 6px; padding-block: 3px;">
-          <img class="icons" src="/assets/icons/checklist.svg" alt="Checklist" title="Tasks" style="padding-inline: 6px; padding-block: 3px;">
-          <img class="icons" src="/assets/icons/sticky_note.svg" alt="Note" title="Note" style="padding-inline: 6px; padding-block: 3px;">
-          <img class="icons" src="/assets/icons/play.svg" alt="Media" title="Media player" onclick="if(document.getElementById('media_player_window').style.display == 'none'){document.getElementById('media_player_window').style.display = 'block'}else{document.getElementById('media_player_window').style.display = 'none'}" style="padding-inline: 6px; padding-block: 3px;">
-          <img class="icons" src="/assets/icons/lightbulb.svg" alt="Advise" title="Advise" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/Timer.svg" alt="⏲️" title="Timer" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/checklist.svg" alt="☑️" title="Tasks" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/sticky_note.svg" alt="🗒️" title="Note" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/play.svg" alt="▶️" title="Media player" onclick="if(document.getElementById('media_player_window').style.display == 'none'){document.getElementById('media_player_window').style.display = 'block'}else{document.getElementById('media_player_window').style.display = 'none'}" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/lightbulb.svg" alt="💡" title="Advise" style="padding-inline: 6px; padding-block: 3px;">
         </div>
       </slidebar>
       <div id="menu" style="width: 22%; height: 640px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px; /*z-index: 0; position: relative;*/">
@@ -179,14 +179,17 @@
               <input type="range" min="0" max="100" value="50" style="width: 100%;">
             </p>
             <p>
-              <strong>Radio</strong>
+              <strong><emoji>📻</emoji>Radio</strong>
               <!-- <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly> -->
-              <select style="width: 100%;">
+              <select onchange="document.getElementById('radio_iframe').src = this.value" style="width: 100%;">
                 <option value="suzume_lofi" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
-                <option value="LofiHipHop_LofiGirl" selected>Lofi HipHop (https://youtu.be/jfKfPfyJRdk)</option>
-                <option value="ChillHop">ChillHop Radio</option>
+                <option value="https://youtu.be/jfKfPfyJRdk" selected>Lofi HipHop (study/relax)</option>
+                <option value="https://youtube.com/live/7NOSDKb0HlU?feature=shared">ChillHop Radio beats (study/relax)</option>
+                <option value="https://youtu.be/4xDzrJKXOOY">Lofi Synthwave (chill/gaming)</option>
+                <option value=""></option>
               </select>
               <input type="range" min="0" max="100" value="50" style="width: 100%;">
+              <iframe id="radio_iframe" src="" frameborder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
             </p>
             <p>
               <strong>Ambiance</strong>
