@@ -32,241 +32,267 @@
     <bar style="display: flex;"></bar>
   </header>
   
-  <div style="display: flex;">
-    <slidebar style="display: flex; flex-direction: column; width: 3%; max-width: max-content; min-width: 37px;">
-      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
-        <img class="icons" src="/assets/icons/place.svg" alt="Space" title="Spaces" onclick="Pannel('Space')" style="padding-inline: 6px; padding-block: 3px;">
-        <img class="icons" src="/assets/icons/sound.svg" alt="Sound" title="Sounds" onclick="Pannel('Sound')" style="padding-inline: 6px; padding-block: 3px;">
-        <img class="icons" src="/assets/icons/calendar.svg" alt="calendar" title="Calendar" onclick="Pannel('Calendar')" style="padding-inline: 6px; padding-block: 3px;">
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px; margin-top: 5px;">
-        <img src="/assets/icons/Timer.svg" alt="Timer" title="Timer" style="padding-inline: 6px; padding-block: 3px;">
-        <img src="/assets/icons/checklist.svg" alt="Checklist" title="Tasks" style="padding-inline: 6px; padding-block: 3px;">
-        <img src="/assets/icons/sticky_note.svg" alt="Note" title="Note" style="padding-inline: 6px; padding-block: 3px;">
-        <img src="/assets/icons/play.svg" alt="Media" title="Media" style="padding-inline: 6px; padding-block: 3px;">
-        <img src="/assets/icons/lightbulb.svg" alt="Advise" title="Advise" style="padding-inline: 6px; padding-block: 3px;">
-      </div>
-    </slidebar>
-    <div id="menu" style="width: 22%; height: 640px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px;">
-      <div style="overflow-y: auto; height: -webkit-fill-available; overflow-x: hidden;">
-        <div id="scenery" style="display: block;">
-          <h3>Scenery</h3>
-          <p hidden>
-            <strong>Scenery's Audio</strong>
-            <input type="range" min="0" max="100" value="0" style="width: 100%;">
-            <input type="search" placeholder="Search..." style="width: 100%; padding: 2px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 5px;">
-          </p>
-          <p style="margin-block: 0; display: flex;">
-            <strong>Background fill</strong>
-            <div>
-              <span>Contain</span>
-                <input type="range" min="0" max="1" value="0" oninput="if(this.value == 1){document.getElementById('background_img').style.objectFit='contain'}else{document.getElementById('background_img').style.objectFit='cover'}" style="width: 30px; accent-color: auto;">
-              <span>Cover</span>
-            </div>
-          </p>
-          <div>
-            <details open>
-              <summary>Nature & forest</summary>
-              <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-              </div>
-            </details>
-  
-            <details>
-              <summary>Sky & landscape</summary>
-              <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.makeagif.com/media/12-06-2016/agrhvF.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/39/e6/74/39e67457b2ea6906abb5cc4c97d2419f.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-              </div>
-            </details>
-
-            <details>
-              <summary>Animals</summary>
-              <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://cdn.pixabay.com/animation/2024/10/16/09/27/09-27-16-122_512.gif" alt="Animals" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="Animals" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-              </div>
-            </details>
-
-            <details>
-              <summary>City</summary>
-              <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://secondcropcreative.com/perfectloops/images/The-Lion-City-II-Majulah.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://64.media.tumblr.com/a83e8c7b1576a1e6ec6b49aea480b497/e1ea13f09d41a12d-d8/s500x750/ebbd18ee69dec47203071fa0848d1c6a649c8856.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.gifer.com/QHJ.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/28/86/71/2886713deb0207537e144acfd85b8eaa.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://community.adobe.com/t5/image/serverpage/image-id/62387i88E258CC27F30FF0/image-size/large?v=v2&px=999" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.gifer.com/StEb.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://t3hz0r.com/post/photoshop-smoothly-looping-gif-tutorial/crossfade_method.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.imgur.com/yB0rP0s.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/52/a0/18/52a018a9981b1908678d9aa3b82d6445.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/ce/33/4f/ce334f7f6b259c77c49ac1a0fa931102.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://giffiles.alphacoders.com/567/5674.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://64.media.tumblr.com/171664230092480d1114ffde87a1e50e/tumblr_pewdu6lTFL1toe0eco1_500.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://www.ignant.com/wp-content/uploads/2014/04/Rebecca-Mock_02.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-              </div>
-            </details>
-
-            <details>
-              <summary>Pixel Art</summary>
-              <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://i.imgur.com/F6NZsjA.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://img.itch.zone/aW1nLzE1MTA4ODY0LmdpZg==/original/Xs1pQh.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/68/31/45/6831454cf213ed7ffa541fe666fa9cf8.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://images.squarespace-cdn.com/content/v1/551a19f8e4b0e8322a93850a/ed563e40-c82c-4e0f-a3a7-a7f076c30811/Full_Scene.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.imgur.com/HdUXkZH.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.imgur.com/2fpaXej.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.imgur.com/poL3syP.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.imgur.com/7OykyHz.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.imgur.com/gBxP6oJ.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.imgur.com/xsMoGLV.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/0c/80/f6/0c80f63edb502914226a3a3f8010762f.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/af/3a/ef/af3aef3f7edf0294bdecd2b9d0115146.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/93/f0/4b/93f04b4b1103cc4e6410bb4f831acb6c.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/223e6792880429.5e569ff84ebef.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/a0/bf/31/a0bf31b06c55ec7098e7233835be1169.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-              </div>
-            </details>
-
-            <details>
-              <summary>Abstract</summary>
-              <div style="display: flex; flex-wrap: wrap;">
-                <img src="https://i.redd.it/5bdk9ixr2b701.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/55/2e/c1/552ec189475f1d337391b02d6b0b9965.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.gifer.com/origin/98/98e7c3d1b54978e7bb68d269ea1037d3_w200.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://media3.giphy.com/media/3oriNZuNzeTbtJvKs8/200w.gif?cid=6c09b952xr890pbb929rifvdurskdb31aevl26sse941o3uv&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://media4.giphy.com/media/LZQ7nyyPa0KevNUQtK/200w.gif?cid=6c09b952mmp4j7mazju3sdd154dsnvqkpyf2p2qx9yn1bzsu&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://media.giphy.com/media/jcckJbNsK0nLy/giphy.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/4b/20/e0/4b20e05879b68f413efca4c6dd4ae13a.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.redd.it/8u3dtryd4br61.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://opengameart.org/sites/default/files/tunnelconstant.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/5e/33/fe/5e33feded0d56e84f9bf4a6552d11465.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.gifer.com/embedded/download/7saq.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnU0MjBueXBzbXc5MW5uaW5uOTMyb2tnZjFtMDAzazN1bnBiM244ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sPD0WMaCidlM9E2Nl8/giphy.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://lapsedtime.com/wp-content/uploads/2016/03/water.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://metro.co.uk/wp-content/uploads/2015/06/spyrogif-gif-art-is-strangely-relaxing-spiral.gif?w=350" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://media2.giphy.com/media/NLwQZlo5wA8su4kYhL/giphy.gif?cid=6c09b952ujafcepd9dofdj5mh80aoy409s3jmdj78bkf1qhm&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="https://i.pinimg.com/originals/23/c1/c6/23c1c66f9b7c9920900c3aab35e01a65.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-                <img src="" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
-              </div>
-            </details>
-
-            <details hidden>
-              <summary>Videos</summary>
-              <img src="https://i.ytimg.com/vi/zTK9DhM6OQc/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBMgKih_MA8=&rs=AOn4CLDW6T-43ArPFOdpOKwT3fvmpJLBcg" alt="Sky" class="SceneryIcons_Video">
-            </details>
-          </div>
+  <div style="display: grid; grid-template-columns: 1fr 99%;">
+    <div style="display: flex; z-index: 1;">
+      <slidebar style="display: flex; flex-direction: column; width: 3%; max-width: max-content; min-width: 37px; /*z-index: 0; position: relative;*/">
+        <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/place.svg" alt="Space" title="Spaces" onclick="Pannel('Space')" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/sound.svg" alt="Sound" title="Sounds" onclick="Pannel('Sound')" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/calendar.svg" alt="calendar" title="Calendar" onclick="Pannel('Calendar')" style="padding-inline: 6px; padding-block: 3px;">
         </div>
-
-        <div id="soundboard" style="display: none;">
-          <h3>Soundboard</h3>
-          <p hidden>
-            <strong>Space's Audio</strong>
-            <input type="range" min="0" max="100" value="50" style="width: 100%;">
-          </p>
-          <p>
-            <strong>Radio</strong>
-            <!-- <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly> -->
-            <select style="width: 100%;">
-              <option value="suzume_lofi">Suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
-              <option value="LofiHipHop_LofiGirl" selected>Lofi HipHop (https://youtu.be/jfKfPfyJRdk)</option>
-              <option value="ChillHop">ChillHop Radio</option>
-            </select>
-            <input type="range" min="0" max="100" value="50" style="width: 100%;">
-          </p>
-          <p>
-            <strong>Ambiance</strong>
-            <div>
-              <div style="overflow-x: hidden;">
-                <span><emoji>☔</emoji>Soft rain out</span>
-                <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-              </div>
-  
-              <div style="overflow-x: hidden;">
-                <span><emoji>🌧️</emoji>Deep rain indoor</span>
-                <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-              </div>
-  
-              <div style="overflow-x: hidden;">
-                <span><emoji>🔥</emoji>Fire</span>
-                <audio src="/assets/audio/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-              </div>
-  
-              <div style="overflow-x: hidden;">
-                <span><emoji>⌨️</emoji>Keyboard</span>
-                <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-              </div>
-
-              <div style="overflow-x: hidden;">
-                <span><emoji>📱</emoji>Digital tel keyboard</span>
-                <audio src="/assets/audio/digital_keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-              </div>
-  
-              <div style="overflow-x: hidden;">
-                <span><emoji>🍃</emoji>Soft wind</span>
-                <audio src="/assets/audio/soft_wind.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
-              </div>
-            </div>
-          </p>
+        <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px; margin-top: 5px;">
+          <img src="/assets/icons/Timer.svg" alt="Timer" title="Timer" style="padding-inline: 6px; padding-block: 3px;">
+          <img src="/assets/icons/checklist.svg" alt="Checklist" title="Tasks" style="padding-inline: 6px; padding-block: 3px;">
+          <img src="/assets/icons/sticky_note.svg" alt="Note" title="Note" style="padding-inline: 6px; padding-block: 3px;">
+          <img src="/assets/icons/play.svg" alt="Media" title="Media" style="padding-inline: 6px; padding-block: 3px;">
+          <img src="/assets/icons/lightbulb.svg" alt="Advise" title="Advise" style="padding-inline: 6px; padding-block: 3px;">
         </div>
-
-        <div id="calendar" style="display: none;">
-          <h3>Calendar</h3>
-          <div style="display: flex; align-items: center; margin-bottom: 10px; width: -webkit-fill-available;">
-            <select id="viewSelector" style="width: -webkit-fill-available; height: fit-content;">
-              <option value="daily">Daily View</option>
-              <option value="weekly" hidden>Weekly View</option>
-              <option value="monthly" selected>Monthly View</option>
-              <option value="yearly">Yearly View</option>
-            </select>
-            <div style="display: flex;">
-              <img src="/assets/icons/add-event.svg" alt="Add-Event">
-              
-              <div onclick="calendar.changeView('dayGridMonth'); calendar.gotoDate(new Date());">
-                <img src="/assets/icons/today.svg" alt="Today" style="cursor: pointer;">
+      </slidebar>
+      <div id="menu" style="width: 22%; height: 640px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px; /*z-index: 0; position: relative;*/">
+        <div style="overflow-y: auto; height: -webkit-fill-available; overflow-x: hidden;">
+          <div id="scenery" style="display: block;">
+            <h3>Scenery</h3>
+            <p hidden>
+              <strong>Scenery's Audio</strong>
+              <input type="range" min="0" max="100" value="0" style="width: 100%;">
+              <input type="search" placeholder="Search..." style="width: 100%; padding: 2px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 5px;">
+            </p>
+            <p style="margin-block: 0; display: flex;">
+              <strong>Background fill</strong>
+              <div>
+                <span>Contain</span>
+                  <input type="range" min="0" max="1" value="0" oninput="if(this.value == 1){document.getElementById('background_img').style.objectFit='contain'}else{document.getElementById('background_img').style.objectFit='cover'}" style="width: 30px; accent-color: auto;">
+                <span>Cover</span>
               </div>
-            </div>
+            </p>
+            <div>
+              <details open>
+                <summary>Nature & forest</summary>
+                <div style="display: flex; flex-wrap: wrap;">
+                  <img src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/cc/19/2f/cc192f34efa4ea33fc486f6e90b8d0fb.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/6d/fa/a3/6dfaa33c74a191458912f8be7e154b04.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/17/a9/31/17a931c22b62d290adb1030837e03d23.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/1f/58/32/1f5832186ffd64058efad2a3a810d006.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/60/d8/44/60d844679e07db517c19fdc5dd7af089.gif" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="" alt="Nature & forest" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                </div>
+              </details>
+    
+              <details>
+                <summary>Sky & landscape</summary>
+                <div style="display: flex; flex-wrap: wrap;">
+                  <img src="https://i.pinimg.com/originals/d7/e7/81/d7e781b32269a8a82b500c1a9dc97733.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/c6/14/23/c6142319baaa6280f31d2fcb92557783.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.makeagif.com/media/12-06-2016/agrhvF.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/39/e6/74/39e67457b2ea6906abb5cc4c97d2419f.gif" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="" alt="Sky & landscape" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                </div>
+              </details>
 
-            <!-- css per festivi ed eventi: text-decoration: underline double red; -->
+              <details>
+                <summary>Animals</summary>
+                <div style="display: flex; flex-wrap: wrap;">
+                  <img src="https://cdn.pixabay.com/animation/2024/10/16/09/27/09-27-16-122_512.gif" alt="Animals" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="" alt="Animals" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                </div>
+              </details>
+
+              <details>
+                <summary>City</summary>
+                <div style="display: flex; flex-wrap: wrap;">
+                  <img src="https://secondcropcreative.com/perfectloops/images/The-Lion-City-II-Majulah.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://64.media.tumblr.com/a83e8c7b1576a1e6ec6b49aea480b497/e1ea13f09d41a12d-d8/s500x750/ebbd18ee69dec47203071fa0848d1c6a649c8856.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.gifer.com/QHJ.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/28/86/71/2886713deb0207537e144acfd85b8eaa.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://community.adobe.com/t5/image/serverpage/image-id/62387i88E258CC27F30FF0/image-size/large?v=v2&px=999" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.gifer.com/StEb.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://t3hz0r.com/post/photoshop-smoothly-looping-gif-tutorial/crossfade_method.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.imgur.com/yB0rP0s.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/52/a0/18/52a018a9981b1908678d9aa3b82d6445.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/ce/33/4f/ce334f7f6b259c77c49ac1a0fa931102.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://giffiles.alphacoders.com/567/5674.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://64.media.tumblr.com/171664230092480d1114ffde87a1e50e/tumblr_pewdu6lTFL1toe0eco1_500.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://www.ignant.com/wp-content/uploads/2014/04/Rebecca-Mock_02.gif" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="" alt="City" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                </div>
+              </details>
+
+              <details>
+                <summary>Pixel Art</summary>
+                <div style="display: flex; flex-wrap: wrap;">
+                  <img src="https://i.imgur.com/F6NZsjA.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://img.itch.zone/aW1nLzE1MTA4ODY0LmdpZg==/original/Xs1pQh.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/68/31/45/6831454cf213ed7ffa541fe666fa9cf8.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://images.squarespace-cdn.com/content/v1/551a19f8e4b0e8322a93850a/ed563e40-c82c-4e0f-a3a7-a7f076c30811/Full_Scene.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.imgur.com/HdUXkZH.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.imgur.com/2fpaXej.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.imgur.com/poL3syP.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.imgur.com/7OykyHz.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.imgur.com/gBxP6oJ.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.imgur.com/xsMoGLV.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/0c/80/f6/0c80f63edb502914226a3a3f8010762f.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/af/3a/ef/af3aef3f7edf0294bdecd2b9d0115146.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/93/f0/4b/93f04b4b1103cc4e6410bb4f831acb6c.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/223e6792880429.5e569ff84ebef.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/a0/bf/31/a0bf31b06c55ec7098e7233835be1169.gif" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="" alt="Pixel Art" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                </div>
+              </details>
+
+              <details>
+                <summary>Abstract</summary>
+                <div style="display: flex; flex-wrap: wrap;">
+                  <img src="https://i.redd.it/5bdk9ixr2b701.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/55/2e/c1/552ec189475f1d337391b02d6b0b9965.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.gifer.com/origin/98/98e7c3d1b54978e7bb68d269ea1037d3_w200.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://media3.giphy.com/media/3oriNZuNzeTbtJvKs8/200w.gif?cid=6c09b952xr890pbb929rifvdurskdb31aevl26sse941o3uv&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://media4.giphy.com/media/LZQ7nyyPa0KevNUQtK/200w.gif?cid=6c09b952mmp4j7mazju3sdd154dsnvqkpyf2p2qx9yn1bzsu&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://media.giphy.com/media/jcckJbNsK0nLy/giphy.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/4b/20/e0/4b20e05879b68f413efca4c6dd4ae13a.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.redd.it/8u3dtryd4br61.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://opengameart.org/sites/default/files/tunnelconstant.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/5e/33/fe/5e33feded0d56e84f9bf4a6552d11465.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.gifer.com/embedded/download/7saq.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnU0MjBueXBzbXc5MW5uaW5uOTMyb2tnZjFtMDAzazN1bnBiM244ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sPD0WMaCidlM9E2Nl8/giphy.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://lapsedtime.com/wp-content/uploads/2016/03/water.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://metro.co.uk/wp-content/uploads/2015/06/spyrogif-gif-art-is-strangely-relaxing-spiral.gif?w=350" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://media2.giphy.com/media/NLwQZlo5wA8su4kYhL/giphy.gif?cid=6c09b952ujafcepd9dofdj5mh80aoy409s3jmdj78bkf1qhm&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="https://i.pinimg.com/originals/23/c1/c6/23c1c66f9b7c9920900c3aab35e01a65.gif" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                  <img src="" alt="Abstract" class="SceneryIcons" onclick="ChangeBackground(this.src);">
+                </div>
+              </details>
+
+              <details hidden>
+                <summary>Videos</summary>
+                <img src="https://i.ytimg.com/vi/zTK9DhM6OQc/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBMgKih_MA8=&rs=AOn4CLDW6T-43ArPFOdpOKwT3fvmpJLBcg" alt="Sky" class="SceneryIcons_Video">
+              </details>
+            </div>
           </div>
-          
-          <div id="calendarAPI" style="height: -webkit-fill-available; user-select: none; cursor: default;"></div>
-          
-          <div style="user-select: none; cursor: default;">
-            <hr>
-            Seleziona un evento per vedere i dettagli.
-            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5px;">
-              <div style="display: flex; flex-direction: column; /*align-items: center;*/ width: -webkit-fill-available;">
-                <span>Event Name</span>
-                <span>Event Description</span>
-                <span>Event Date</span>
-                <span>Event Time</span>
+
+          <div id="soundboard" style="display: none;">
+            <h3>Soundboard</h3>
+            <p hidden>
+              <strong>Space's Audio</strong>
+              <input type="range" min="0" max="100" value="50" style="width: 100%;">
+            </p>
+            <p>
+              <strong>Radio</strong>
+              <!-- <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly> -->
+              <select style="width: 100%;">
+                <option value="suzume_lofi">Suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
+                <option value="LofiHipHop_LofiGirl" selected>Lofi HipHop (https://youtu.be/jfKfPfyJRdk)</option>
+                <option value="ChillHop">ChillHop Radio</option>
+              </select>
+              <input type="range" min="0" max="100" value="50" style="width: 100%;">
+            </p>
+            <p>
+              <strong>Ambiance</strong>
+              <div>
+                <div style="overflow-x: hidden;">
+                  <span><emoji>☔</emoji>Soft rain out</span>
+                  <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                </div>
+    
+                <div style="overflow-x: hidden;">
+                  <span><emoji>🌧️</emoji>Deep rain indoor</span>
+                  <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                </div>
+    
+                <div style="overflow-x: hidden;">
+                  <span><emoji>🔥</emoji>Fire</span>
+                  <audio src="/assets/audio/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                </div>
+    
+                <div style="overflow-x: hidden;">
+                  <span><emoji>⌨️</emoji>Keyboard</span>
+                  <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                </div>
+
+                <div style="overflow-x: hidden;">
+                  <span><emoji>📱</emoji>Digital tel keyboard</span>
+                  <audio src="/assets/audio/digital_keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                </div>
+    
+                <div style="overflow-x: hidden;">
+                  <span><emoji>🍃</emoji>Soft wind</span>
+                  <audio src="/assets/audio/soft_wind.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                </div>
+              </div>
+            </p>
+          </div>
+
+          <div id="calendar" style="display: none;">
+            <h3>Calendar</h3>
+            <div style="display: flex; align-items: center; margin-bottom: 10px; width: -webkit-fill-available;">
+              <select id="viewSelector" style="width: -webkit-fill-available; height: fit-content;">
+                <option value="daily">Daily View</option>
+                <option value="weekly" hidden>Weekly View</option>
+                <option value="monthly" selected>Monthly View</option>
+                <option value="yearly">Yearly View</option>
+              </select>
+              <div style="display: flex;">
+                <img src="/assets/icons/add-event.svg" alt="Add-Event">
+                
+                <div onclick="calendar.changeView('dayGridMonth'); calendar.gotoDate(new Date());">
+                  <img src="/assets/icons/today.svg" alt="Today" style="cursor: pointer;">
+                </div>
+              </div>
+
+              <!-- css per festivi ed eventi: text-decoration: underline double red; -->
+            </div>
+            
+            <div id="calendarAPI" style="height: -webkit-fill-available; user-select: none; cursor: default;"></div>
+            
+            <div style="user-select: none; cursor: default;">
+              <hr>
+              Seleziona un evento per vedere i dettagli.
+              <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5px;">
+                <div style="display: flex; flex-direction: column; /*align-items: center;*/ width: -webkit-fill-available;">
+                  <span>Event Name</span>
+                  <span>Event Description</span>
+                  <span>Event Date</span>
+                  <span>Event Time</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+
+    <div name="fisical_desk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; /*z-index: -1;*/">
+      <div name="media_player" style="background: white; border-radius: 10px; resize: both; width: max-content; height: 8em; top: 50%; left: 50%; position: absolute; padding: 4px; overflow: auto;">
+        <select>
+          <option value="playlist">Playlists</option>
+          <option value="video">Videos</option>
+        </select>
+        <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
+          <strong style="margin-inline-start: -20px;">Playlists</strong>
+          <li>Lofi Girl-beats to relax/study</li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
+          <strong style="margin-inline-start: -20px;">Videos</strong>
+          <li></li>
+        </ul>
+      </div>
+    </div>
   </div>
+  
 
   <div id="background">
     <img id="background_img" src="https://www.icegif.com/wp-content/uploads/icegif-5597.gif" alt=":&#x28;" style="z-index: -1;">
@@ -276,26 +302,6 @@
     <!--
       <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" style="display: none;"></iframe>
     -->
-    <div name="fisical_desk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-      <div name="media_player" style="background: white; border-radius: 10px; resize: both;">
-        <select>
-          <option value="">Playlists</option>
-          <option value="">Videos</option>
-        </select>
-        <ul>
-          <strong>Playlists</strong>
-          <li>Lofi Girl-beats to relax/study</li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <ul>
-          <strong>Videos</strong>
-          <li></li>
-        </ul>
-      </div>
-    </div>
   </div>
 
   <script src="https://www.youtube.com/iframe_api"></script>
