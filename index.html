@@ -41,11 +41,11 @@
           <img class="icons" src="/assets/icons/calendar.svg" alt="calendar" title="Calendar" onclick="Pannel('Calendar')" style="padding-inline: 6px; padding-block: 3px;">
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px; margin-top: 5px;">
-          <img src="/assets/icons/Timer.svg" alt="Timer" title="Timer" style="padding-inline: 6px; padding-block: 3px;">
-          <img src="/assets/icons/checklist.svg" alt="Checklist" title="Tasks" style="padding-inline: 6px; padding-block: 3px;">
-          <img src="/assets/icons/sticky_note.svg" alt="Note" title="Note" style="padding-inline: 6px; padding-block: 3px;">
-          <img src="/assets/icons/play.svg" alt="Media" title="Media player" style="padding-inline: 6px; padding-block: 3px;">
-          <img src="/assets/icons/lightbulb.svg" alt="Advise" title="Advise" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/Timer.svg" alt="Timer" title="Timer" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/checklist.svg" alt="Checklist" title="Tasks" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/sticky_note.svg" alt="Note" title="Note" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/play.svg" alt="Media" title="Media player" onclick="if(document.getElementById('media_player_window').style.display == 'none'){document.getElementById('media_player_window').style.display = 'block'}else{document.getElementById('media_player_window').style.display = 'none'}" style="padding-inline: 6px; padding-block: 3px;">
+          <img class="icons" src="/assets/icons/lightbulb.svg" alt="Advise" title="Advise" style="padding-inline: 6px; padding-block: 3px;">
         </div>
       </slidebar>
       <div id="menu" style="width: 22%; height: 640px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px; /*z-index: 0; position: relative;*/">
@@ -326,7 +326,70 @@
 </body>
 </html>
 
-<script>
+<script>//Rendere trascinabile il media player
+  function makeMediaPlayerDraggable() {
+    const mediaPlayer = document.getElementById('media_player_window');
+    if (!mediaPlayer) {
+      console.error('Media player element not found');
+      return;
+    }
+
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+    // Usa il div con cursor: grab come maniglia di trascinamento
+    const dragHandle = mediaPlayer.querySelector('div > div');
+    if (dragHandle) {
+      dragHandle.onmousedown = dragMouseDown;
+    } else {
+      // Fallback sull'intero media player se la maniglia non viene trovata
+      mediaPlayer.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // Ottieni la posizione del cursore del mouse all'avvio
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      // Chiama una funzione ogni volta che il cursore si muove
+      document.onmousemove = elementDrag;
+
+      // Cambia il cursore durante il trascinamento
+      this.style.cursor = 'grabbing';
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // Calcola la nuova posizione del cursore
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+
+      // Imposta la nuova posizione dell'elemento
+      mediaPlayer.style.top = (mediaPlayer.offsetTop - pos2) + "px";
+      mediaPlayer.style.left = (mediaPlayer.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+      // Interrompi il movimento quando il mouse è rilasciato
+      document.onmouseup = null;
+      document.onmousemove = null;
+
+      // Ripristina il cursore
+      const dragHandle = mediaPlayer.querySelector('div > div');
+      if (dragHandle) {
+        dragHandle.style.cursor = 'grab';
+      }
+    }
+  }
+
+  // Inizializza la funzionalità di trascinamento quando il DOM è pronto
+  document.addEventListener('DOMContentLoaded', function() {
+    makeMediaPlayerDraggable();
+  });
 </script>
 
 <script>
