@@ -283,18 +283,27 @@
         </select>
 
         <div style="display: flex; flex-direction: column;">
-          <iframe id="media_player_iframe" onchange="" src="/none_iframe.html" style="height: 80px;" width="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+          <iframe id="media_player_iframe" onload="" src="/none_iframe.html" style="height: 120px;" width="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+          <div style="width: 100%; height: 22px;" hidden>
+            <img src="/assets/icons/skip_previous.svg" alt="Previous" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage("{\"event\":\"command\",\"func\":\"seekTo\",\"args\":[0, true]}", "*");'>
+            <img src="/assets/icons/play.svg" alt="Play" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"playVideo","args":[]}, "*");'>
+            <img src="/assets/icons/pause.svg" alt="Pause" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"pauseVideo","args":[]}, "*");'>
+            <img src="/assets/icons/skip_next.svg" alt="Next" style="cursor: pointer;" onclick="document.getElementById('media_player_iframe').contentWindow.postMessage({'event':'command','func':'nextVideo','args':[]}, '*');">
+          </div>
           <div>
             <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
-              <strong style="margin-inline-start: -20px;">Playlists</strong>
+              <strong style="margin-inline-start: -20px;">Playlists from YouTube</strong>
+              <li class="li_media-player" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
+              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
+              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
+              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
+            </ul>
+            <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
+              <strong style="margin-inline-start: -20px;">Playlists from Spotify</strong>
               <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?theme=0">Lofi Beats to relax/study <var title="by...">LofiGirl</var></li>
               <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/2Al9G2jrWkwDlRFMZaw1GX?theme=0">lofi Jazz Cafe <emoji>🎷</emoji> Study Beats & Chill Vibes <var title="by...">Chill Select</var></li>
               <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/4FMOBw7eopNczgfzspCvIP?theme=0">Deep Ambient <var title="by...">thebootlegboy</var></li>
               <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
-            </ul>
-            <ul hidden style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
-              <strong style="margin-inline-start: -20px;">Videos</strong>
-              <li class="li_media-player">Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
             </ul>
           </div>
         </div>        
