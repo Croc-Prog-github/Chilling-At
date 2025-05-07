@@ -180,11 +180,10 @@
             </p>
             <p>
               <strong><emoji>📻</emoji>Radio</strong>
-              <!-- <input type="url" value="https://youtu.be/jfKfPfyJRdk" readonly> -->
               <select onchange="document.getElementById('radio_iframe').src = this.value" style="width: 100%;">
                 <option value="suzume_lofi" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
-                <option value="null">--OFF--</option>
-                <option value="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&controls=0" selected>Lofi HipHop (study/relax)</option>
+                <option value="null" selected>--OFF--</option>
+                <option value="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&controls=0">Lofi HipHop (study/relax)</option>
                 <option value="https://www.youtube-nocookie.com/embed/7NOSDKb0HlU?autoplay=1&controls=0">ChillHop Radio beats (study/relax)</option>
                 <option value="https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?autoplay=1&controls=0">Lofi Synthwave (chill/gaming)</option>
                 <option value="https://www.youtube-nocookie.com/embed/S_MOd40zlYU?autoplay=1&controls=0">Lofi deep ambient (escape/dream)</option>
@@ -232,7 +231,7 @@
               </div>
             </p>
 
-            <iframe id="radio_iframe" src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&controls=0" allow="autoplay; encrypted-media;" loading="lazy" style="opacity: 0; pointer-events: none;"></iframe>
+            <iframe id="radio_iframe" src="" allow="autoplay; encrypted-media;" loading="lazy" style="opacity: 0; pointer-events: none;"></iframe>
           </div>
 
           <div id="calendar" style="display: none;">
@@ -276,42 +275,48 @@
 
 
 
-    <div id="media_player_window" style="background: white; border-radius: 10px; resize: both; width: 237px; height: 84px; top: 50%; left: 50%; position: absolute; padding: 4px; overflow: hidden; min-width: 360px; min-height: 150px;">
-      <div style="overflow: auto; height: inherit;width: inherit; min-width: inherit; min-height: inherit;">
-        <div style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
-          <span style="background: white;">Media player</span>
-            <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer;">
+    <div name="Widget" note="Guarda div a riga 35 perchè è lui che mi contiene">
+      <div id="media_player_window" style="display: none; background: white; border-radius: 10px; resize: both; width: 237px; height: 84px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; min-width: 360px; min-height: 150px;">
+        <div style="overflow: auto; height: inherit;width: inherit; min-width: inherit; min-height: inherit;">
+          <div style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
+            <span style="background: white;">Media player</span>
+              <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer;">
+          </div>
+          <select hidden>
+            <option value="playlist">Playlists</option>
+            <option value="video">Videos</option>
+          </select>
+  
+          <div style="display: flex; flex-direction: column;">
+            <iframe id="media_player_iframe" onload="" src="/none_iframe.html" style="height: 120px;" width="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+            <div style="width: 100%; height: 22px;" hidden>
+              <img src="/assets/icons/skip_previous.svg" alt="Previous" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage("{\"event\":\"command\",\"func\":\"seekTo\",\"args\":[0, true]}", "*");'>
+              <img src="/assets/icons/play.svg" alt="Play" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"playVideo","args":[]}, "*");'>
+              <img src="/assets/icons/pause.svg" alt="Pause" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"pauseVideo","args":[]}, "*");'>
+              <img src="/assets/icons/skip_next.svg" alt="Next" style="cursor: pointer;" onclick="document.getElementById('media_player_iframe').contentWindow.postMessage({'event':'command','func':'nextVideo','args':[]}, '*');">
+            </div>
+            <div>
+              <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
+                <strong style="margin-inline-start: -20px;">Playlists from YouTube</strong>
+                <li class="li_media-player" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
+                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
+                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
+                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
+              </ul>
+              <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
+                <strong style="margin-inline-start: -20px;">Playlists from Spotify</strong>
+                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?theme=0">Lofi Beats to relax/study <var title="by...">LofiGirl</var></li>
+                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/2Al9G2jrWkwDlRFMZaw1GX?theme=0">lofi Jazz Cafe <emoji>🎷</emoji> Study Beats & Chill Vibes <var title="by...">Chill Select</var></li>
+                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/4FMOBw7eopNczgfzspCvIP?theme=0">Deep Ambient <var title="by...">thebootlegboy</var></li>
+                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
+              </ul>
+            </div>
+          </div>        
         </div>
-        <select hidden>
-          <option value="playlist">Playlists</option>
-          <option value="video">Videos</option>
-        </select>
+      </div>
 
-        <div style="display: flex; flex-direction: column;">
-          <iframe id="media_player_iframe" onload="" src="/none_iframe.html" style="height: 120px;" width="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
-          <div style="width: 100%; height: 22px;" hidden>
-            <img src="/assets/icons/skip_previous.svg" alt="Previous" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage("{\"event\":\"command\",\"func\":\"seekTo\",\"args\":[0, true]}", "*");'>
-            <img src="/assets/icons/play.svg" alt="Play" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"playVideo","args":[]}, "*");'>
-            <img src="/assets/icons/pause.svg" alt="Pause" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"pauseVideo","args":[]}, "*");'>
-            <img src="/assets/icons/skip_next.svg" alt="Next" style="cursor: pointer;" onclick="document.getElementById('media_player_iframe').contentWindow.postMessage({'event':'command','func':'nextVideo','args':[]}, '*');">
-          </div>
-          <div>
-            <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
-              <strong style="margin-inline-start: -20px;">Playlists from YouTube</strong>
-              <li class="li_media-player" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
-              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
-              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
-              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
-            </ul>
-            <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
-              <strong style="margin-inline-start: -20px;">Playlists from Spotify</strong>
-              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?theme=0">Lofi Beats to relax/study <var title="by...">LofiGirl</var></li>
-              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/2Al9G2jrWkwDlRFMZaw1GX?theme=0">lofi Jazz Cafe <emoji>🎷</emoji> Study Beats & Chill Vibes <var title="by...">Chill Select</var></li>
-              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/4FMOBw7eopNczgfzspCvIP?theme=0">Deep Ambient <var title="by...">thebootlegboy</var></li>
-              <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
-            </ul>
-          </div>
-        </div>        
+      <div name="Perla giornaliera">
+
       </div>
     </div>
   </div>
@@ -323,7 +328,7 @@
 
     <div id="player" name="youtube API iframe"></div>
     <!--
-      <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" style="display: none;"></iframe>
+      <iframe src="https://www.youtube.com/embed/zTK9DhM6OQc?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" style="display: none; loading="lazy""></iframe>
     -->
   </div>
 
