@@ -350,22 +350,31 @@
 </html>
 
 <script>// Funzione per ottenere la citazione del giorno (ZenQuotes.io)
-  function fetchDailyQuote() {
-    fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/today')
-      .then(response => response.json())
-      .then(data => {
-        const quote = data[0].q;
-        const author = data[0].a;
-        document.getElementById('Quotes').innerHTML = `
-          <p style="font-size: 14px; font-style: italic;">"${quote}"</p>
-          <p style="text-align: right; font-size: 12px; color: #ccc;">— ${author}</p>
-        `;
-      })
-    .catch(err => console.error('Error fetching quote:', err));
+  async function caricaCitazioneZenQuotes() {
+    try {
+      const response = await fetch('https://zenquotes.io/api/quotes', {
+        headers: {
+          'Authorization': 'Bearer LA_TUA_API_KEY'
+        }
+      });
+      const data = await response.json();
+
+      if (Array.isArray(data) && data.length > 0) {
+        const random = Math.floor(Math.random() * data.length);
+        const citazione = data[random].q;
+        const autore = data[random].a;
+        document.getElementById('Quotes').innerHTML = `"${citazione}" — <i>${autore}</i>`;
+      } else {
+        document.getElementById('Quotes').innerText = 'Citazione non disponibile.';
+      }
+    } catch (errore) {
+      console.error('Errore nel recupero della citazione:', errore);
+      document.getElementById('Quotes').innerText = 'Impossibile caricare la citazione.';
+    }
   }
 
-  //document.addEventListener("DOMContentLoaded", fetchDailyQuote);
-  fetchDailyQuote()
+  // Chiama la funzione al caricamento della pagina
+  window.addEventListener('DOMContentLoaded', caricaCitazioneZenQuotes);
 </script>
 
 <script>//Controlla il volume di #radio_iframe da range
