@@ -315,8 +315,21 @@
         </div>
       </div>
 
-      <div name="Perla giornaliera">
-
+      <div name="Perla giornaliera" id="Daily_Advise" style="display: block; color: white; background: #ffffff26; border-radius: 10px; /*resize: both;*/ width: 280px; height: 125px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; /*min-width: 360px; min-height: 150px;*/">
+        <div style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
+          <span style="background: transparent;">Consiglio giornaliero</span>
+          <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('Daily_Advise').src = '/none_iframe.html'; document.getElementById('Daily_Advise').style.display = 'none';" style="background: transparent; cursor: pointer; border: red 2px;">
+        </div>
+        <div>
+          <!--<select style="background: transparent;">
+            <option value="any">Any</option>
+            <option value="dreams">Dreams</option>
+            <option value="motivation">Motivation</option>
+            <option value="inspiration">Inspiration</option>
+            <option value="happiness">Happiness</option>
+          </select>-->
+          <div id="Quotes"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -336,6 +349,25 @@
 </body>
 </html>
 
+<script>// Funzione per ottenere la citazione del giorno (ZenQuotes.io)
+  function fetchDailyQuote() {
+    fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/today')
+      .then(response => response.json())
+      .then(data => {
+        const quote = data[0].q;
+        const author = data[0].a;
+        document.getElementById('Quotes').innerHTML = `
+          <p style="font-size: 14px; font-style: italic;">"${quote}"</p>
+          <p style="text-align: right; font-size: 12px; color: #ccc;">— ${author}</p>
+        `;
+      })
+    .catch(err => console.error('Error fetching quote:', err));
+  }
+
+  //document.addEventListener("DOMContentLoaded", fetchDailyQuote);
+  fetchDailyQuote()
+</script>
+
 <script>//Controlla il volume di #radio_iframe da range
   function setYouTubeVolume(volume) {
     const iframe = document.getElementById('radio_iframe');
@@ -349,70 +381,47 @@
   }
 </script>
 
-<script>//Rendere trascinabile il media player
-  function makeMediaPlayerDraggable() {
-    const mediaPlayer = document.getElementById('media_player_window');
-    if (!mediaPlayer) {
-      console.error('Media player element not found');
-      return;
-    }
+<script>//Fuzioni per il drag&drop di widget
+  document.addEventListener('DOMContentLoaded', function () {
+    const DRAGGABLE_IDS = ['media_player_window', 'Daily_Advise']; // Inserisci qui gli ID dei div
 
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    DRAGGABLE_IDS.forEach(id => {
+        const m = document.getElementById(id);
+        if (!m) {
+            console.warn(`Elemento con ID "${id}" non trovato.`);
+            return;
+        }
 
-    // Usa il div con cursor: grab come maniglia di trascinamento
-    const dragHandle = mediaPlayer.querySelector('div > div');
-    if (dragHandle) {
-      dragHandle.onmousedown = dragMouseDown;
-    } else {
-      // Fallback sull'intero media player se la maniglia non viene trovata
-      mediaPlayer.onmousedown = dragMouseDown;
-    }
+        const h = m.querySelector('div>div') || m;
+        h.style.cursor = 'grab';
 
-    function dragMouseDown(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // Ottieni la posizione del cursore del mouse all'avvio
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-      // Chiama una funzione ogni volta che il cursore si muove
-      document.onmousemove = elementDrag;
+        h.onmousedown = function (e) {
+            e.preventDefault();
 
-      // Cambia il cursore durante il trascinamento
-      this.style.cursor = 'grabbing';
-    }
+            let p1 = 0, p2 = 0, p3 = e.clientX, p4 = e.clientY;
 
-    function elementDrag(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // Calcola la nuova posizione del cursore
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
+            const dragMouseMove = function (e) {
+                e.preventDefault();
+                p1 = p3 - e.clientX;
+                p2 = p4 - e.clientY;
+                p3 = e.clientX;
+                p4 = e.clientY;
+                m.style.top = (m.offsetTop - p2) + "px";
+                m.style.left = (m.offsetLeft - p1) + "px";
+            };
 
-      // Imposta la nuova posizione dell'elemento
-      mediaPlayer.style.top = (mediaPlayer.offsetTop - pos2) + "px";
-      mediaPlayer.style.left = (mediaPlayer.offsetLeft - pos1) + "px";
-    }
+            const dragMouseUp = function () {
+                document.onmouseup = null;
+                document.onmousemove = null;
+                h.style.cursor = 'grab';
+            };
 
-    function closeDragElement() {
-      // Interrompi il movimento quando il mouse è rilasciato
-      document.onmouseup = null;
-      document.onmousemove = null;
-
-      // Ripristina il cursore
-      const dragHandle = mediaPlayer.querySelector('div > div');
-      if (dragHandle) {
-        dragHandle.style.cursor = 'grab';
-      }
-    }
-  }
-
-  // Inizializza la funzionalità di trascinamento quando il DOM è pronto
-  document.addEventListener('DOMContentLoaded', function() {
-    makeMediaPlayerDraggable();
-  });
+            document.onmouseup = dragMouseUp;
+            document.onmousemove = dragMouseMove;
+            h.style.cursor = 'grabbing';
+        };
+    });
+});
 </script>
 
 <script>
