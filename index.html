@@ -361,7 +361,7 @@
         const author = data[0].a;
         const testo = `"${quote}" — ${author}`;
 
-        document.getElementById('Quotes').innerText = testo;
+        document.getElementById('Quotes').innerHTML = `${quote}<br><hx style="font-size: 0.8em;color: #E0E0E0;font-family: 'Tangerine';">${author}</hx>`;
       } else {
         document.getElementById('Quotes').innerText = 'Citazione non disponibile.';
       }
@@ -372,7 +372,6 @@
   }
 
   window.addEventListener('DOMContentLoaded', caricaCitazioneZenQuotes);
-</script>
 </script>
 
 <script>//Controlla il volume di #radio_iframe da range
@@ -548,7 +547,7 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Life+Savers:wght@400;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Life+Savers:wght@400;800&family=Tangerine&display=swap');
 
   body {
     font-family: 'Fuzzy Bubbles', 'Life Savers', cursive;
