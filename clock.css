@@ -1,0 +1,319 @@
+/* Stili base per tutti gli orologi */
+[name="clock"] {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 0 auto;
+}
+
+[name="clock"] select {
+  margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+[name="clock"] > div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ----- SCROLLING CLOCK ----- */
+[name="clock"].scrolling [name="ore"],
+[name="clock"].scrolling [name="minuti"],
+[name="clock"].scrolling [name="secondi"] {
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  width: 60px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+[name="clock"].scrolling [name="ore"]::before,
+[name="clock"].scrolling [name="minuti"]::before,
+[name="clock"].scrolling [name="secondi"]::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 48px;
+  animation: scrollDigits 1s infinite;
+  transform-origin: center center;
+}
+
+[name="clock"].scrolling [name="ore"]::before {
+  animation-duration: 43200s; /* 12 ore in secondi */
+}
+
+[name="clock"].scrolling [name="minuti"]::before {
+  animation-duration: 3600s; /* 60 minuti in secondi */
+}
+
+[name="clock"].scrolling [name="secondi"]::before {
+  animation-duration: 60s; /* 60 secondi */
+}
+
+@keyframes scrollDigits {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-100%);
+  }
+  20% {
+    transform: translateY(-200%);
+  }
+  /* Continua per tutti i numeri necessari */
+  90% {
+    transform: translateY(-900%);
+  }
+}
+
+/* ----- 7 SEGMENT CLOCK ----- */
+[name="clock"].segment {
+  background-color: #222;
+  padding: 30px;
+}
+
+[name="clock"].segment > div {
+  background-color: black;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+[name="clock"].segment [name="ore"],
+[name="clock"].segment [name="minuti"],
+[name="clock"].segment [name="secondi"] {
+  position: relative;
+  width: 60px;
+  height: 100px;
+  display: grid;
+  grid-template-areas:
+    "a a a"
+    "f . b"
+    "f . b"
+    "g g g"
+    "e . c"
+    "e . c"
+    "d d d";
+  gap: 2px;
+}
+
+[name="clock"].segment [name="ore"]::before,
+[name="clock"].segment [name="minuti"]::before,
+[name="clock"].segment [name="secondi"]::before,
+[name="clock"].segment [name="ore"]::after,
+[name="clock"].segment [name="minuti"]::after,
+[name="clock"].segment [name="secondi"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #555;
+}
+
+.segment-a, .segment-b, .segment-c, .segment-d, .segment-e, .segment-f, .segment-g {
+  background-color: rgba(255, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.segment-on {
+  background-color: #f00;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  animation: segmentGlow 2s infinite alternate;
+}
+
+.segment-a { grid-area: a; height: 10px; }
+.segment-b { grid-area: b; width: 10px; }
+.segment-c { grid-area: c; width: 10px; }
+.segment-d { grid-area: d; height: 10px; }
+.segment-e { grid-area: e; width: 10px; }
+.segment-f { grid-area: f; width: 10px; }
+.segment-g { grid-area: g; height: 10px; }
+
+@keyframes segmentGlow {
+  from { box-shadow: 0 0 5px rgba(255, 0, 0, 0.7); }
+  to { box-shadow: 0 0 15px rgba(255, 0, 0, 0.9); }
+}
+
+/* ----- LED CLOCK ----- */
+[name="clock"].led {
+  background-color: black;
+  padding: 30px;
+}
+
+[name="clock"].led > div {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #333;
+}
+
+[name="clock"].led [name="ore"],
+[name="clock"].led [name="minuti"],
+[name="clock"].led [name="secondi"] {
+  position: relative;
+  width: 60px;
+  height: 90px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.led-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #300;
+  border-radius: 50%;
+  transition: background-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+.led-on {
+  background-color: #f00;
+  box-shadow: 0 0 5px #f00, 0 0 10px #f00;
+  animation: ledPulse 1s infinite alternate;
+}
+
+@keyframes ledPulse {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+/* ----- ANALOGIC CLOCK ----- */
+[name="clock"].analogic {
+  background-color: #f9f9f9;
+}
+
+[name="clock"].analogic > div {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 50%;
+  border: 10px solid #333;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+[name="clock"].analogic [name="ore"],
+[name="clock"].analogic [name="minuti"],
+[name="clock"].analogic [name="secondi"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 5px;
+}
+
+[name="clock"].analogic [name="ore"] {
+  width: 8px;
+  height: 60px;
+  background-color: #333;
+  transform: translate(-50%, -100%) rotate(0deg);
+  animation: rotateHour 43200s linear infinite;
+  z-index: 1;
+}
+
+[name="clock"].analogic [name="minuti"] {
+  width: 6px;
+  height: 80px;
+  background-color: #555;
+  transform: translate(-50%, -100%) rotate(0deg);
+  animation: rotateMinute 3600s linear infinite;
+  z-index: 2;
+}
+
+[name="clock"].analogic [name="secondi"] {
+  width: 2px;
+  height: 90px;
+  background-color: #f00;
+  transform: translate(-50%, -100%) rotate(0deg);
+  animation: rotateSecond 60s steps(60) infinite;
+  z-index: 3;
+}
+
+@keyframes rotateHour {
+  from { transform: translate(-50%, -100%) rotate(0deg); }
+  to { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+@keyframes rotateMinute {
+  from { transform: translate(-50%, -100%) rotate(0deg); }
+  to { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+@keyframes rotateSecond {
+  from { transform: translate(-50%, -100%) rotate(0deg); }
+  to { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+/* Marcatori per l'orologio analogico */
+[name="clock"].analogic > div::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+[name="clock"].analogic > div::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 5deg,
+    #333 5deg 6deg,
+    transparent 6deg 85deg,
+    #333 85deg 86deg,
+    transparent 86deg 175deg,
+    #333 175deg 176deg,
+    transparent 176deg 265deg,
+    #333 265deg 266deg,
+    transparent 266deg 355deg,
+    #333 355deg 356deg,
+    transparent 356deg
+  );
+  z-index: 0;
+}
+
+/* Logica di visibilità basata sulla selezione */
+[name="clock"]:not(.scrolling):not(.segment):not(.led):not(.analogic) {
+  /* Per impostazione predefinita, mostra lo scrolling clock */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 0 auto;
+}
