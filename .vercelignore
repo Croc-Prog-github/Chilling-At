@@ -1,0 +1,11 @@
+# Ignora dipendenze locali
+node_modules
+.vscode
+*.log
+npm-debug.log
+.DS_Store
+
+# Ignora dati temporanei o build locali
+dist
+build
+.cache
