@@ -4,11 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
-    "preview": "npx vite preview",
-    "start": "npx vite"
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite"
   },
-  "dependencies": {
+  "devDependencies": {
     "vite": "^6.3.5"
   },
   "engines": {
