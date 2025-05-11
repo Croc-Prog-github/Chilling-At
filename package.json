@@ -9,7 +9,7 @@
     "start": "vite"
   },
   "devDependencies": {
-    "vite": "5.4.19"
+    "vite": "6.3.5"
   },
   "engines": {
     "node": "18.x"
