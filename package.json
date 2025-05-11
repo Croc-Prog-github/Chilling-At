@@ -9,9 +9,9 @@
     "start": "vite"
   },
   "dependencies": {
-    "vite": "^5.2.0"
+    "vite": "^6.3.5"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   }
 }
