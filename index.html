@@ -280,11 +280,12 @@
 
     <div name="Widget" note="Guarda div a riga 35 perchè è lui che mi contiene">
       <div id="media_player_window" style="display: none; background: white; border-radius: 10px; resize: both; width: 237px; height: 84px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; min-width: 360px; min-height: 150px;">
+        <div id="Drag&Drop_MediaPlayer" style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
+          <span style="background: white; align-self: center; padding-block: 2px;">Media player</span>
+          <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer;">
+        </div>
         <div style="overflow: auto; height: inherit;width: inherit; min-width: inherit; min-height: inherit;">
-          <div style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
-            <span style="background: white; align-self: center; padding-block: 2px;">Media player</span>
-              <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer;">
-          </div>
+
           <select hidden>
             <option value="playlist">Playlists</option>
             <option value="video">Videos</option>
@@ -318,8 +319,8 @@
         </div>
       </div>
 
-      <div name="Perla giornaliera" id="Daily_Advise" style="display: none; color: white; background: #ffffff26; border-radius: 10px; /*resize: both;*/ width: 280px; height: 125px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; /*min-width: 360px; min-height: 150px;*/">
-        <div style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
+      <div id="Daily_Advise" style="display: none; color: white; background: #ffffff26; border-radius: 10px; /*resize: both;*/ width: 280px; height: 125px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; /*min-width: 360px; min-height: 150px;*/">
+        <div id="Drag&Drop_Quotes" style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
           <span style="background: transparent; align-self: center;">Daily Advice</span>
           <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('Daily_Advise').style.display = 'none';" style="background: transparent; cursor: pointer; border: red 2px;">
         </div>
@@ -336,7 +337,7 @@
       </div>
 
       <div id="Clock" style="display: block; color: black; background: white; border-radius: 10px; /*resize: both;*/ width: 500px; height: 235px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; /*min-width: 360px; min-height: 150px;*/">
-        <div style="height: 20px; display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
+        <div id="Drag&Drop_clock" style="height: 20px; display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
           <span style="background: transparent; align-self: center;"></span>
           <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('Clock').style.display = 'none';" style="background: transparent; cursor: pointer; border: red 2px;">
         </div>
@@ -356,9 +357,9 @@
               <option value="">Analogic clock</option>
             </select>
             <div>
-              <div name="ore"></div>
-              <div name="minuti"></div>
-              <div name="secondi"></div>
+              <div id="ore" name="ore"></div>
+              <div id="minuti" name="minuti"></div>
+              <div id="secondi" name="secondi"></div>
             </div>
           </div>
         </div>
@@ -443,45 +444,72 @@
 
 <script>//Fuzioni per il drag&drop di widget
   document.addEventListener('DOMContentLoaded', function () {
-    const DRAGGABLE_IDS = ['media_player_window','Daily_Advise','Clock']; // Inserisci qui gli ID dei div
+    const DRAGGABLE_IDS = ['Drag&Drop_MediaPlayer', 'Drag&Drop_Quotes', 'Drag&Drop_clock']; // ID delle maniglie di drag
 
-    DRAGGABLE_IDS.forEach(id => {
-        const m = document.getElementById(id);
-        if (!m) {
-            console.warn(`Elemento con ID "${id}" non trovato.`);
+    DRAGGABLE_IDS.forEach(dragHandleId => {
+        const dragHandle = document.getElementById(dragHandleId);
+        if (!dragHandle) {
+            console.warn(`Elemento con ID "${dragHandleId}" non trovato.`);
             return;
         }
 
-        const h = m.querySelector('div>div') || m;
-        h.style.cursor = 'grab';
+        const draggableElement = dragHandle.parentElement;
+        const parentId = draggableElement.id;
 
-        h.onmousedown = function (e) {
+        if (!draggableElement || !parentId) {
+            console.warn(`Elemento padre valido non trovato per "${dragHandleId}".`);
+            return;
+        }
+
+        // Ripristina la posizione dal sessionStorage se presente
+        const savedPosition = sessionStorage.getItem(`dragPos_${parentId}`);
+        if (savedPosition) {
+            try {
+                const { top, left } = JSON.parse(savedPosition);
+                draggableElement.style.top = top;
+                draggableElement.style.left = left;
+            } catch (e) {
+                console.warn(`Errore nel parsing della posizione salvata per "${parentId}".`);
+            }
+        }
+
+        dragHandle.style.cursor = 'grab';
+
+        dragHandle.onmousedown = function (e) {
             e.preventDefault();
 
-            let p1 = 0, p2 = 0, p3 = e.clientX, p4 = e.clientY;
+            let offsetX = e.clientX;
+            let offsetY = e.clientY;
 
-            const dragMouseMove = function (e) {
+            const onMouseMove = function (e) {
                 e.preventDefault();
-                p1 = p3 - e.clientX;
-                p2 = p4 - e.clientY;
-                p3 = e.clientX;
-                p4 = e.clientY;
-                m.style.top = (m.offsetTop - p2) + "px";
-                m.style.left = (m.offsetLeft - p1) + "px";
+                const dx = e.clientX - offsetX;
+                const dy = e.clientY - offsetY;
+                offsetX = e.clientX;
+                offsetY = e.clientY;
+
+                draggableElement.style.top = (draggableElement.offsetTop + dy) + "px";
+                draggableElement.style.left = (draggableElement.offsetLeft + dx) + "px";
             };
 
-            const dragMouseUp = function () {
-                document.onmouseup = null;
-                document.onmousemove = null;
-                h.style.cursor = 'grab';
+            const onMouseUp = function () {
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+                dragHandle.style.cursor = 'grab';
+
+                // Salva la posizione nel sessionStorage
+                sessionStorage.setItem(`dragPos_${parentId}`, JSON.stringify({
+                    top: draggableElement.style.top,
+                    left: draggableElement.style.left
+                }));
             };
 
-            document.onmouseup = dragMouseUp;
-            document.onmousemove = dragMouseMove;
-            h.style.cursor = 'grabbing';
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+            dragHandle.style.cursor = 'grabbing';
         };
     });
-});
+  });
 </script>
 
 <script>
