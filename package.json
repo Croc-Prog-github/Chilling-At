@@ -11,9 +11,6 @@
   "devDependencies": {
     "vite": "^5.2.0"
   },
-  "overrides": {
-    "vite": "5.2.0"
-  },
   "engines": {
     "node": "18.x"
   }
