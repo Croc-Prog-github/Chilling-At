@@ -349,21 +349,37 @@
           <hx class="Clock_buttons">Stopwatch</hx>
         </div>
         <div name="main">
-          <select>
+          <select hidden>
             <option value="Scrolling" selected>Scrolling clock</option>
             <option value="7Segment">7 segment clock</option>
             <option value="LED">LED clock</option>
             <option value="Analogic">Analogic clock</option>
           </select>
           <div name="clock">
+            
+            <!--<div name="ScrollingClock" style="display: flex; color: whitesmoke; font-family: 'Kanit'; text-align: center; justify-content: center; zoom: 190%;">
+              <div name="ore" style="display: flex; flex-direction: column; width: 5.35em; background: #1e1e1e; height: 12vh;">
+                <div style="height: 50%; font-size: 70px; overflow-x: auto;">0</div>
+                <div style="height: 50%; font-size: 70px; overflow-x: auto;">1</div>
+              </div>
+              <div name="minuti"></div>
+              <div name="secondi"></div>
+            </div>-->
+
             <div name="ScrollingClock" style="display: flex; color: whitesmoke; font-family: 'Kanit'; text-align: center; justify-content: center; zoom: 190%;">
               <div id="ore_SC" style="width: 5.35em; background: #1e1e1e; height: 12vh;">
+                <hr style="margin-block: 0; top: 50%; position: relative;">
+                <hx style="display: block; font-size: 8vh; height: 0; overflow: hidden; transition: max-height 0.5s ease;" name="next">56</hx>
                 <hx style="display: block; font-size: 8vh;">55</hx>
               </div>
               <div id="minuti_SC" style="width: 5.35em; background: #1e1e1e; margin-inline: 3px; height: 12vh;">
+                <hr style="margin-block: 0; top: 50%; position: relative;">
+                <hx style="display: block; font-size: 8vh; height: 0; overflow: hidden; transition: max-height 0.5s ease;" name="next">56</hx>
                 <hx style="display: block; font-size: 8vh;">55</hx>
               </div>
               <div id="secondi_SC" style="width: 5.35em; background: #1e1e1e; height: 12vh;">
+                <hr style="margin-block: 0; top: 50%; position: relative;">
+                <hx style="display: block; font-size: 8vh; height: 0; overflow: hidden; transition: max-height 0.5s ease;" name="next">56</hx>
                 <hx style="display: block; font-size: 8vh;">55</hx>
               </div>
             </div>
