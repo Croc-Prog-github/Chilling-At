@@ -1,0 +1,124 @@
+            <div class="flip-clock-container">
+              <!-- Ore -->
+              <div name="ore" class="flip-unit-container">
+                <div class="digit-container">
+                  <!-- Prima cifra delle ore -->
+                  <div class="digit-top">
+                    <span class="front">0</span>
+                  </div>
+                  <div class="digit-bottom">
+                    <span class="front">0</span>
+                  </div>
+
+                  <!-- Flip animato -->
+                  <div class="digit-top flip">
+                    <span class="back">0</span>
+                  </div>
+                  <div class="digit-bottom flip">
+                    <span class="back">0</span>
+                  </div>
+                </div>
+
+                <div class="digit-container">
+                  <!-- Seconda cifra delle ore -->
+                  <div class="digit-top">
+                    <span class="front">0</span>
+                  </div>
+                  <div class="digit-bottom">
+                    <span class="front">0</span>
+                  </div>
+
+                  <!-- Flip animato -->
+                  <div class="digit-top flip">
+                    <span class="back">0</span>
+                  </div>
+                  <div class="digit-bottom flip">
+                    <span class="back">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Separatore -->
+              <div class="separator">:</div>
+
+              <!-- Minuti -->
+              <div name="minuti" class="flip-unit-container">
+                <div class="digit-container">
+                  <!-- Prima cifra dei minuti -->
+                  <div class="digit-top">
+                    <span class="front">0</span>
+                  </div>
+                  <div class="digit-bottom">
+                    <span class="front">0</span>
+                  </div>
+
+                  <!-- Flip animato -->
+                  <div class="digit-top flip">
+                    <span class="back">0</span>
+                  </div>
+                  <div class="digit-bottom flip">
+                    <span class="back">0</span>
+                  </div>
+                </div>
+
+                <div class="digit-container">
+                  <!-- Seconda cifra dei minuti -->
+                  <div class="digit-top">
+                    <span class="front">0</span>
+                  </div>
+                  <div class="digit-bottom">
+                    <span class="front">0</span>
+                  </div>
+
+                  <!-- Flip animato -->
+                  <div class="digit-top flip">
+                    <span class="back">0</span>
+                  </div>
+                  <div class="digit-bottom flip">
+                    <span class="back">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Separatore -->
+              <div class="separator">:</div>
+
+              <!-- Secondi -->
+              <div name="secondi" class="flip-unit-container">
+                <div class="digit-container">
+                  <!-- Prima cifra dei secondi -->
+                  <div class="digit-top">
+                    <span class="front">0</span>
+                  </div>
+                  <div class="digit-bottom">
+                    <span class="front">0</span>
+                  </div>
+
+                  <!-- Flip animato -->
+                  <div class="digit-top flip">
+                    <span class="back">0</span>
+                  </div>
+                  <div class="digit-bottom flip">
+                    <span class="back">0</span>
+                  </div>
+                </div>
+
+                <div class="digit-container">
+                  <!-- Seconda cifra dei secondi -->
+                  <div class="digit-top">
+                    <span class="front">0</span>
+                  </div>
+                  <div class="digit-bottom">
+                    <span class="front">0</span>
+                  </div>
+
+                  <!-- Flip animato -->
+                  <div class="digit-top flip">
+                    <span class="back">0</span>
+                  </div>
+                  <div class="digit-bottom flip">
+                    <span class="back">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
