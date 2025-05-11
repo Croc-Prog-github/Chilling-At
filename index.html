@@ -351,15 +351,21 @@
         <div name="main">
           <div name="clock">
             <select>
-              <option value="" selected>Scrolling clock</option>
-              <option value="">7 segment clock</option>
-              <option value="">LED clock</option>
-              <option value="">Analogic clock</option>
+              <option value="Scrolling" selected>Scrolling clock</option>
+              <option value="7Segment">7 segment clock</option>
+              <option value="LED">LED clock</option>
+              <option value="Analogic">Analogic clock</option>
             </select>
-            <div>
-              <div id="ore" name="ore"></div>
-              <div id="minuti" name="minuti"></div>
-              <div id="secondi" name="secondi"></div>
+            <div name="ScrollingClock" style="display: flex; color: #ccc; font-family: 'Kanit'; font-size: 7.5em; text-align: center;">
+              <div id="ore_SC" style="width: 1.35em; height: 101px; background: #1e1e1e;">
+                <hx style="display: ruby-text;">55</hx>
+              </div>
+              <div id="minuti_SC" style="width: 1.35em; height: 101px; background: #1e1e1e; margin-inline: 3px;">
+                <hx style="display: ruby-text;">55</hx>
+              </div>
+              <div id="secondi_SC" style="width: 1.35em; height: 101px; background: #1e1e1e;">
+                <hx style="display: ruby-text;">55</hx>
+              </div>
             </div>
           </div>
         </div>
@@ -629,7 +635,7 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Life+Savers:wght@400;800&family=Tangerine&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Kanit:wght@400;500;600;800&family=Life+Savers:wght@400;800&family=Tangerine&display=swap');
 
   body {
     font-family: 'Fuzzy Bubbles', 'Life Savers', cursive;
