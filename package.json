@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "start": "vite"
+    "build": "npx vite build",
+    "preview": "npx vite preview",
+    "start": "npx vite"
   },
   "dependencies": {
     "vite": "^6.3.5"
