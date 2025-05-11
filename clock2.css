@@ -1,0 +1,12 @@
+.slide-down {
+  animation: slideY 1s ease forwards;
+}
+
+@keyframes slideY {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(82px);
+  }
+}
