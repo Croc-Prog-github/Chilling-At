@@ -422,7 +422,7 @@
       return;
     }
 
-    // Altrimenti, recupera una nuova citazione
+    // Altrimenti, recupera una nuova citazione dall'endpoint Vercel
     try {
       const response = await fetch('/api/quote');
       const data = await response.json();
@@ -443,13 +443,14 @@
       }
     } catch (errore) {
       console.error('Errore nel recupero della citazione:', errore);
-      document.getElementById('Quotes').innerText = 'Impossibile caricare la citazione.';
+      document.getElementById('Quotes').innerText = 'Errore nel caricamento della citazione.';
     }
   }
 
   // Controlla ogni ora se la citazione è scaduta
   setInterval(caricaCitazioneZenQuotes, 60 * 60 * 1000); // ogni ora
 
+  // Carica al primo avvio
   window.addEventListener('DOMContentLoaded', caricaCitazioneZenQuotes);
 </script>
 
