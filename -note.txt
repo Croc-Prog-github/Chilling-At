@@ -1,0 +1,4 @@
+Memo:
+- Fix audio (x vercell.com side)
+- Fix endpoint (x vercell.com side)
+- 
