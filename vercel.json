@@ -16,6 +16,10 @@
       "dest": "/api/$1.js"
     },
     {
+      "src": "/(.*\\.\\w+)$",
+      "continue": true
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
