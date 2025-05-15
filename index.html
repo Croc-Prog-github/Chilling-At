@@ -200,37 +200,43 @@
                 <div style="overflow-x: hidden;">
                   <span><emoji>☔</emoji>Soft rain out</span>
                   <audio src="/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play();">
+                  <input type="range" min="0" max="100" value="0" step="4" id="SoftRainOut_inp" style="width: 99%;" onload="CaricaDaSS(this.id);" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play(); SalveInSS(this.id, this.value);">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>🌧️</emoji>Deep rain indoor</span>
                   <audio src="/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play();">
+                  <input type="range" min="0" max="100" value="0" step="4" id="DeepIndoorRain_inp" style="width: 99%;" onload="CaricaDaSS(this.id);" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play(); SalveInSS(this.id, this.value);">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>🔥</emoji>Fire</span>
                   <audio src="/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play();">
+                  <input type="range" min="0" max="100" value="0" step="4" id="Fire_inp" style="width: 99%;" onload="CaricaDaSS(this.id);" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play(); SalveInSS(this.id, this.value);">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>⌨️</emoji>Keyboard</span>
                   <audio src="/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play();">
+                  <input type="range" min="0" max="100" value="0" step="4" id="Keyboard_inp" style="width: 99%;" onload="CaricaDaSS(this.id);" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play(); SalveInSS(this.id, this.value);">
                 </div>
 
                 <div style="overflow-x: hidden;">
                   <span><emoji>📱</emoji>Digital tel keyboard</span>
                   <audio src="/digital_keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play();">
+                  <input type="range" min="0" max="100" value="0" step="4" id="DigitalTelKeyboard_inp" style="width: 99%;" onload="CaricaDaSS(this.id);" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play(); SalveInSS(this.id, this.value);">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>🍃</emoji>Soft wind</span>
                   <audio src="/soft_wind.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play();">
+                  <input type="range" min="0" max="100" value="0" step="4" id="SoftWind_inp" style="width: 99%;" onload="CaricaDaSS(this.id);" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play(); SalveInSS(this.id, this.value);">
+                </div>
+
+                <div style="overflow-x: hidden;">
+                  <span><emoji>🌬️</emoji>Deep wind</span>
+                  <audio src="/deep_wind.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
+                  <input type="range" min="0" max="100" value="0" step="4" id="DeepWind_inp" style="width: 99%;" onload="CaricaDaSS(this.id);" oninput="const audio = this.parentElement.querySelector('audio'); audio.volume = this.value / 100; audio.play(); SalveInSS(this.id, this.value);">
                 </div>
               </div>
             </p>
@@ -406,6 +412,44 @@
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
+<script> //Salva e carica da sessionStorage i valori nel menu
+  function SalveInSS(id, value) {
+    sessionStorage.setItem(id, value);
+  }
+
+  // Carica il valore dal sessionStorage e aggiorna il volume
+  function CaricaDaSS(id) {
+    let el = document.getElementById(id);
+    if (!el) {
+      console.warn(`Elemento con id "${id}" non trovato.`);
+      return;
+    }
+
+    let savedValue = sessionStorage.getItem(id);
+    if (savedValue !== null) {
+      el.value = savedValue;
+
+      // Salviamo la funzione da eseguire dopo interazione utente
+      function applySavedVolume() {
+        const audio = el.parentElement.querySelector('audio');
+        audio.volume = el.value / 100;
+        if (el.value > 0) {
+          audio.play();
+        }
+        document.removeEventListener('click', applySavedVolume);
+        document.removeEventListener('keydown', applySavedVolume);
+      }
+
+      // Attiva dopo prima interazione
+      document.addEventListener('click', applySavedVolume);
+      document.addEventListener('keydown', applySavedVolume);
+    } else {
+      el.value = 0;
+      console.warn(`Nessun valore salvato trovato per "${id}".`);
+    }
+  }
+</script>
 
 <script> // Rintraccia link da GCS (Google custom research)
 /*

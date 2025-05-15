@@ -1,4 +1,5 @@
 Memo:
 [ ] Fix audio (x vercell.com side)
+[ ] Fix audio from SessionStorage
 [V] Fix endpoint quotes (x vercell.com side)
 [ ] Fix calendar fetch (x vercell.com side)
