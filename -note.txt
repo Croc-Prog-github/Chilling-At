@@ -1,4 +1,4 @@
 Memo:
 - Fix audio (x vercell.com side)
-- Fix endpoint (x vercell.com side)
-- 
+- Fix endpoint quotes (x vercell.com side)
+- Fix calendar fetch (x vercell.com side)
