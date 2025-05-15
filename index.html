@@ -288,21 +288,9 @@
           <span style="background: white; align-self: center; padding-block: 2px;">Media player</span>
           <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer;">
         </div>
-        <div style="overflow: auto; height: inherit;width: inherit; min-width: inherit; min-height: inherit;">
-
-          <select hidden>
-            <option value="playlist">Playlists</option>
-            <option value="video">Videos</option>
-          </select>
-  
+        <div style="overflow: auto; height: inherit; width: inherit; min-width: inherit; min-height: inherit;">
           <div style="display: flex; flex-direction: column;">
-            <iframe id="media_player_iframe" onload="" src="/none_iframe.html" style="height: 120px; width: 100%; max-width: 490px;" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
-            <div style="width: 100%; height: 22px;" hidden>
-              <img src="/assets/icons/skip_previous.svg" alt="Previous" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage("{\"event\":\"command\",\"func\":\"seekTo\",\"args\":[0, true]}", "*");'>
-              <img src="/assets/icons/play.svg" alt="Play" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"playVideo","args":[]}, "*");'>
-              <img src="/assets/icons/pause.svg" alt="Pause" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"pauseVideo","args":[]}, "*");'>
-              <img src="/assets/icons/skip_next.svg" alt="Next" style="cursor: pointer;" onclick="document.getElementById('media_player_iframe').contentWindow.postMessage({'event':'command','func':'nextVideo','args':[]}, '*');">
-            </div>
+            <iframe id="media_player_iframe" src="null" style="display: none; height: 120px; width: 100%; max-width: 490px;" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
             <div>
               <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
                 <!-- <strong style="margin-inline-start: -20px;">Playlists from YouTube</strong> -->
