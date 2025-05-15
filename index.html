@@ -203,37 +203,37 @@
                 <div style="overflow-x: hidden;">
                   <span><emoji>☔</emoji>Soft rain out</span>
                   <audio src="/assets/audio/out_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>🌧️</emoji>Deep rain indoor</span>
                   <audio src="/assets/audio/deep_indoor_rain.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>🔥</emoji>Fire</span>
                   <audio src="/assets/audio/fireplace.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>⌨️</emoji>Keyboard</span>
                   <audio src="/assets/audio/keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
                 </div>
 
                 <div style="overflow-x: hidden;">
                   <span><emoji>📱</emoji>Digital tel keyboard</span>
                   <audio src="/assets/audio/digital_keyboard.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
                 </div>
     
                 <div style="overflow-x: hidden;">
                   <span><emoji>🍃</emoji>Soft wind</span>
                   <audio src="/assets/audio/soft_wind.mp3" volume="0.0" controls autoplay loop controlslist="noplaybackrate nofullscreen nostop nodownload play" style="pointer-events: none; display: none;"></audio>
-                  <input type="range" min="0" max="100" value="0" style="width: 100%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
+                  <input type="range" min="0" max="100" value="0" step="4" style="width: 99%;" oninput="this.previousElementSibling.volume = this.value / 100; this.previousElementSibling.play();" onclick="">
                 </div>
               </div>
             </p>
@@ -284,25 +284,30 @@
 
     <div name="Widget" note="Guarda div a riga 35 perchè è lui che mi contiene">
       <div id="media_player_window" style="display: none; background: white; border-radius: 10px; resize: both; width: 237px; height: 84px; top: 160x; left: 60px; position: absolute; padding: 4px; overflow: hidden; min-width: 360px; min-height: 150px; max-width: 490px;">
-        <div id="Drag&Drop_MediaPlayer" style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
-          <span style="background: white; align-self: center; padding-block: 2px;">Media player</span>
-          <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer;">
+        <div id="Drag&Drop_MediaPlayer" style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px; height: 20px;">
+          <span style="background: white; align-self: center; padding-block: 5px;">Media player</span>
+          <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer; height: initial;">
         </div>
-        <div style="overflow: auto; height: inherit; width: inherit; min-width: inherit; min-height: inherit;">
+        <div style="overflow-y: auto; height: inherit; width: -webkit-fill-available; min-width: inherit; min-height: inherit;">
           <div style="display: flex; flex-direction: column;">
-            <iframe id="media_player_iframe" src="null" style="display: none; height: 120px; width: 100%; max-width: 490px;" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+            <iframe id="media_player_iframe" src="/none_iframe.html" style="display: none; height: 120px; width: 100%; max-width: 490px;" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
             <div>
               <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
-                <!-- <strong style="margin-inline-start: -20px;">Playlists from YouTube</strong> -->
+                <strong style="margin-inline-start: -20px;">Generi (playlists)</strong>
                 <details>
                   <summary style="margin-left: -20px;">Deep Ambient</summary>
                   <li class="li_media-player" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
-                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
-                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
-                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value=""> <var title="by..."></var></li>
                 </details>
 
-                <details style="margin-left: -20px;"></details>
+                <details>
+                  <summary style="margin-left: -20px;">Chill</summary>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=W3NMQtWQAzMs5ryN&amp;controls=0&amp;list=PLdE7uo_7KBkeSTmryNClNxUkioFpq3Btx">Chillout <var title="by...">Chill Music Lab</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=JL81gxwah2ncu5XL&amp;controls=0&amp;list=PLdE7uo_7KBkf6X1lbOpL3tAWERvlYej2L">The Best of Chill Music Lab <var title="by...">Chill Music Lab</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value=""> <var title="by..."></var></li>
+                </details>
               </ul>
               <!--<ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
                 <strong style="margin-inline-start: -20px;">Playlists from Spotify</strong>
