@@ -196,7 +196,6 @@
                 <option value="https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?autoplay=1&controls=0">Lofi Synthwave (chill/gaming)</option>
                 <option value="https://www.youtube-nocookie.com/embed/S_MOd40zlYU?autoplay=1&controls=0">Lofi deep ambient (escape/dream)</option>
               </select>
-              <input type="range" min="0" max="100" value="50" style="width: 100%;" oninput="setYouTubeVolume(this.value);">
             </p>
             <p>
               <strong>Ambiance</strong>
@@ -284,7 +283,7 @@
 
 
     <div name="Widget" note="Guarda div a riga 35 perchè è lui che mi contiene">
-      <div id="media_player_window" style="display: none; background: white; border-radius: 10px; resize: both; width: 237px; height: 84px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; min-width: 360px; min-height: 150px;">
+      <div id="media_player_window" style="display: none; background: white; border-radius: 10px; resize: both; width: 237px; height: 84px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; min-width: 360px; min-height: 150px; max-width: 490px;">
         <div id="Drag&Drop_MediaPlayer" style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
           <span style="background: white; align-self: center; padding-block: 2px;">Media player</span>
           <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('media_player_iframe').src = '/none_iframe.html'; document.getElementById('media_player_window').style.display = 'none';" style="background: white; cursor: pointer;">
@@ -297,7 +296,7 @@
           </select>
   
           <div style="display: flex; flex-direction: column;">
-            <iframe id="media_player_iframe" onload="" src="/none_iframe.html" style="height: 120px;" width="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+            <iframe id="media_player_iframe" onload="" src="/none_iframe.html" style="height: 120px; width: 100%; max-width: 490px;" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
             <div style="width: 100%; height: 22px;" hidden>
               <img src="/assets/icons/skip_previous.svg" alt="Previous" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage("{\"event\":\"command\",\"func\":\"seekTo\",\"args\":[0, true]}", "*");'>
               <img src="/assets/icons/play.svg" alt="Play" style="cursor: pointer;" onclick='document.getElementById("media_player_iframe").contentWindow.postMessage({"event":"command","func":"playVideo","args":[]}, "*");'>
@@ -306,19 +305,24 @@
             </div>
             <div>
               <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
-                <strong style="margin-inline-start: -20px;">Playlists from YouTube</strong>
-                <li class="li_media-player" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
-                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
-                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
-                <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
+                <!-- <strong style="margin-inline-start: -20px;">Playlists from YouTube</strong> -->
+                <details>
+                  <summary style="margin-left: -20px;">Deep Ambient</summary>
+                  <li class="li_media-player" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
+                </details>
+
+                <details style="margin-left: -20px;"></details>
               </ul>
-              <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
+              <!--<ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
                 <strong style="margin-inline-start: -20px;">Playlists from Spotify</strong>
                 <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?theme=0">Lofi Beats to relax/study <var title="by...">LofiGirl</var></li>
                 <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/2Al9G2jrWkwDlRFMZaw1GX?theme=0">lofi Jazz Cafe <emoji>🎷</emoji> Study Beats & Chill Vibes <var title="by...">Chill Select</var></li>
                 <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value="https://open.spotify.com/embed/playlist/4FMOBw7eopNczgfzspCvIP?theme=0">Deep Ambient <var title="by...">thebootlegboy</var></li>
                 <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value');" value=""> <var title="by..."></var></li>
-              </ul>
+              </ul>-->
             </div>
           </div>        
         </div>
@@ -329,16 +333,7 @@
           <span style="background: transparent; align-self: center;">Daily Advice</span>
           <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('Daily_Advise').style.display = 'none';" style="background: transparent; cursor: pointer; border: red 2px;">
         </div>
-        <div>
-          <!--<select style="background: transparent;">
-            <option value="any">Any</option>
-            <option value="dreams">Dreams</option>
-            <option value="motivation">Motivation</option>
-            <option value="inspiration">Inspiration</option>
-            <option value="happiness">Happiness</option>
-          </select>-->
-          <div id="Quotes" style="font-family: serif; font-size: 1.05em; user-select:text;">Impossibile caricare la citazione</div>
-        </div>
+        <div id="Quotes" style="font-family: serif; font-size: 1.05em; user-select:text;">Impossibile caricare la citazione</div>
       </div>
 
       <div id="Clock" style="display: none; color: black; background: white; border-radius: 10px; /*resize: both;*/ width: 500px; height: 235px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; /*min-width: 360px; min-height: 150px;*/">
@@ -396,7 +391,7 @@
       <div id="WebResearch" style="display: block; color: black; background: white; border-radius: 10px; resize: both; width: 500px; height: 235px; top: 25%; left: 15%; position: absolute; padding: 4px; overflow: hidden; min-width: 380px; min-height: 250px;">
         <div id="Drag&Drop_WebResearch" style="height: 20px; display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px;">
           <span style="background: transparent; align-self: center;"></span>
-          <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('WebResearch').style.display = 'none';" style="background: transparent; cursor: pointer; border: red 2px;">
+          <img src="/assets/icons/close_x.svg" alt="Close" onclick="document.getElementById('WebResearch').style.display = 'none';" style="background: white; cursor: pointer; border: red 2px; height: auto;">
         </div>
         <div style="overflow: auto; height: -webkit-fill-available;">
           <h1 style="margin-block: 10px; margin-bottom: -5px; justify-self: center; font-family: 'Poiret One'; color: #333333;">Chill Search</h1>
@@ -488,19 +483,6 @@
 
   // Carica al primo avvio
   window.addEventListener('DOMContentLoaded', caricaCitazioneZenQuotes);
-</script>
-
-<script>//Controlla il volume di #radio_iframe da range
-  function setYouTubeVolume(volume) {
-    const iframe = document.getElementById('radio_iframe');
-    if (iframe && iframe.contentWindow) {
-      iframe.contentWindow.postMessage(JSON.stringify({
-        event: 'command',
-        func: 'setVolume',
-        args: [volume]
-      }), '*');
-    }
-  }
 </script>
 
 <script>//Fuzioni per il drag&drop di widget
@@ -649,7 +631,7 @@
   document.querySelectorAll('audio').forEach(audio => audio.volume = 0.0);
 </script>
 
-<script>
+<script> //Video player x background
   /*var player;
 
   // Quando l'API di YouTube è pronta
