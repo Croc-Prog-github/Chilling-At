@@ -22,11 +22,12 @@
 
   <!-- External -->
   <script src="/calendar.js"></script>
+  <link rel="stylesheet" href="/responsive.css">
 
   <!-- Research engnine -->
   <script async src="https://cse.google.com/cse.js?cx=6684f0c35d1ef49a1"></script>
 </head>
-<body style="background: black; overflow: hidden;">
+<body style="background: black; overflow: hidden; width: fit-content;">
   <header style="display: none; justify-content: space-between; margin-bottom: 5px; user-select: none;">
     <bar style="display: flex; align-items: center; background: white; padding: 2px;">
       <div title="Streak">1<emoji>🔥</emoji></div>
@@ -36,8 +37,8 @@
     <bar style="display: flex;"></bar>
   </header>
   
-  <div style="display: grid; grid-template-columns: 1fr 99%;">
-    <div style="display: flex; z-index: 1;">
+  <div style="display: grid; grid-template-columns: 1% 99%;">
+    <div id="slidebar_menu" style="z-index: 1; flex-direction: row;">
       <slidebar style="display: flex; flex-direction: column; width: 3%; max-width: max-content; min-width: 37px; /*z-index: 0; position: relative;*/">
         <div style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; background: white; padding-block: 3px;">
           <img class="icons" src="/assets/icons/place.svg" alt="🌍" title="Spaces" onclick="Pannel('Space')" style="padding-inline: 6px; padding-block: 3px;">
@@ -53,7 +54,7 @@
           <img class="icons" src="/assets/icons/web_explore.svg" alt="🛜" title="Web research" onclick="if(document.getElementById('WebResearch').style.display == 'none'){document.getElementById('WebResearch').style.display = 'block'}else{document.getElementById('WebResearch').style.display = 'none'}" style="padding-inline: 6px; padding-block: 3px;">
         </div>
       </slidebar>
-      <div id="menu" style="width: 22%; height: 640px; min-width: 245px; max-width: 455px; margin-left: 5px; background: white; border-radius: 10px; padding: 4.5px; /*z-index: 0; position: relative;*/">
+      <div id="menu" style="width: 22%; height: 640px; min-width: 245px; max-width: 455px; background: white; border-radius: 10px; padding: 4.5px; /*z-index: 0; position: relative;*/">
         <div style="overflow-y: auto; height: -webkit-fill-available; overflow-x: hidden;">
           <div id="scenery" style="display: block;">
             <h3>Scenery</h3>
@@ -285,7 +286,7 @@
 
 
 
-    <div name="Widget" note="Guarda div a riga 35 perchè è lui che mi contiene">
+    <div name="Widget" style="position: absolute;" note="Guarda div a riga 35 perchè è lui che mi contiene">
       <div id="media_player_window" style="display: none; background: white; border-radius: 10px; resize: both; width: 237px; height: 84px; top: 160x; left: 60px; position: absolute; padding: 4px; overflow: hidden; min-width: 360px; min-height: 150px; max-width: 490px;">
         <div id="Drag&Drop_MediaPlayer" style="display: flex; justify-content: space-between; cursor: grab; background-image: radial-gradient(#4e4e4e 1px, transparent 1px); background-size: 5px 5px; height: 20px;">
           <span style="background: white; align-self: center; padding-block: 5px;">Media player</span>
