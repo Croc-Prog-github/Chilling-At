@@ -6,6 +6,10 @@
     margin-left: 5px;
     margin-top: 0px;
   }
+  #WebResearch {
+    width: 500px;
+    height: 235px;
+  }
 }
 
 @media (max-width: 374px) { /*Schermi inferiore a 375px */
@@ -15,5 +19,9 @@
   #menu {
     margin-left: 0px;
     margin-top: 5px;
+  }
+  #WebResearch {
+    width: 310px;
+    height: 250px;
   }
 }
