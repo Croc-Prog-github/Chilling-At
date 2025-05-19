@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "remove": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\" && cmd /c if exist dist rmdir /s /q dist",
     "preview": "vite preview",
     "start": "vite"
   },
