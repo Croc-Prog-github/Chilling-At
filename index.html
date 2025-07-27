@@ -21,7 +21,7 @@
   </style>
 
   <!-- External -->
-  <script type="module" src="/public/calendar.js"></script>
+  <script type="module" src="/calendar.js"></script>
 
   <!-- Research engnine -->
   <script async src="https://cse.google.com/cse.js?cx=6684f0c35d1ef49a1"></script>
@@ -188,10 +188,15 @@
               <select onchange="document.getElementById('radio_iframe').src = this.value" style="width: 100%;">
                 <option value="suzume_lofi" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</option>
                 <option value="null" selected>--OFF--</option>
-                <option value="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&controls=0">Lofi HipHop (study/relax)</option>
-                <option value="https://www.youtube-nocookie.com/embed/7NOSDKb0HlU?autoplay=1&controls=0">ChillHop Radio beats (study/relax)</option>
-                <option value="https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?autoplay=1&controls=0">Lofi Synthwave (chill/gaming)</option>
-                <option value="https://www.youtube-nocookie.com/embed/S_MOd40zlYU?autoplay=1&controls=0">Lofi deep ambient (escape/dream)</option>
+                <optgroup label="LofiGirl">
+                  <option value="https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?autoplay=1&controls=0">Lofi Synthwave (chill/gaming)</option>
+                  <option value="https://www.youtube-nocookie.com/embed/S_MOd40zlYU?autoplay=1&controls=0">Lofi deep ambient (escape/dream)</option>
+                  <option value="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&controls=0">Lofi HipHop (study/relax)</option>
+                </optgroup>
+                <optgroup label="ChillHop">
+                  <option value="https://www.youtube-nocookie.com/embed/7NOSDKb0HlU?autoplay=1&controls=0">ChillHop Radio beats (study/relax)</option>
+                  <option value="https://www.youtube-nocookie.com/embed/5yx6BWlEVcY?autoplay=1&controls=0">Chillhop Radio jazzy</option>
+                </optgroup>
               </select>
             </p>
             <p>
@@ -295,21 +300,28 @@
           <div style="display: flex; flex-direction: column;">
             <iframe id="media_player_iframe" src="/none_iframe.html" style="display: none; height: 120px; width: 100%; max-width: 490px;" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
             <div>
-              <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
+              <ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px; margin-bottom: 1em;">
                 <strong style="margin-inline-start: -20px;">Generi (playlists)</strong>
                 <details>
                   <summary style="margin-left: -20px;">Deep Ambient</summary>
                   <li class="li_media-player" hidden>Suzume lofi (https://youtu.be/vEM_DwPEnwY)</li>
                   <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=6LRMFeKro-iwFeye&amp;controls=0&amp;list=PL7qhtXuGdmP3TzICecbjovGIQk_xPXIVH">Escape from reality // deep ambient <var title="by...">Kamil Khan</var></li>
                   <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=OnTTqu5mL12twyZ6&amp;controls=0&amp;list=PLwggufgRpVbHtVLwgPqKLWYKnEEkXvRmT">Deep Ambient <var title="by...">Francesco Siano</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=Yi5bRpwIITizR_P-&amp;controls=0&amp;list=PLE1NFmwWU22vIpWxuMI45u2SixJNBTQFr">Relax music <var title="by...">Javek</var></li>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=fY_7uIOzkVbjqwfL&amp;controls=0&amp;list=PLi2kbcGfLxtZN2bP95Wv9BBZtV77WoG0T">deep ambient <var title="by...">JJE</var></li>
                   <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value=""> <var title="by..."></var></li>
                 </details>
 
                 <details>
-                  <summary style="margin-left: -20px;">Chill</summary>
+                  <summary style="margin-left: -20px;">Generic chill</summary>
                   <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=W3NMQtWQAzMs5ryN&amp;controls=0&amp;list=PLdE7uo_7KBkeSTmryNClNxUkioFpq3Btx">Chillout <var title="by...">Chill Music Lab</var></li>
                   <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=JL81gxwah2ncu5XL&amp;controls=0&amp;list=PLdE7uo_7KBkf6X1lbOpL3tAWERvlYej2L">The Best of Chill Music Lab <var title="by...">Chill Music Lab</var></li>
                   <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value=""> <var title="by..."></var></li>
+                </details>
+
+                <details>
+                  <summary style="margin-left: -20px;">Sci-Fi Ambient</summary>
+                  <li class="li_media-player" onclick="document.getElementById('media_player_iframe').src = this.getAttribute('value'); document.getElementById('media_player_iframe').style.removeProperty('display');" value="https://www.youtube-nocookie.com/embed/videoseries?si=L-MGrW68Jwa7EhAC&amp;controls=0&amp;list=PLTn-J7HDP8WmrYFXE0NPFJjYbReMUKa8R">Cozy Summer Ambient Sci Fi Music <var title="by...">Retrocausal Memories</var></li>
                 </details>
               </ul>
               <!--<ul style="list-style-type: decimal; margin-block: 0; padding-inline-start: 20px;">
