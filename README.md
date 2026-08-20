@@ -1,9 +1,9 @@
 # Chilling At
 
-**Chilling at** è una scrivania virtuale browser che ti permette di creare un confortevole e rilassante ambiente da cui gestire alcune applicazioni che usi quotidianamente.<br>
-Possibilità di ascoltare radio Lo-fi e una vasta raccolta di suoni ambientali per concentrarti e rilassarti, ideale per prolungare la rendita nelle lunghe sessioni di lavoro o di studio.
+**Chilling at** It's a virtual browser desktop that lets you create a comfortable and relaxing environment from which to manage some of the applications you use every day.<br>
+The ability to listen to Lo-Fi radio and a vast collection of ambient sounds to help you concentrate and relax, ideal for prolonging your performance during long work or study sessions.
 
 <!--
-## Per gli sviluppatori
-Non usare MAI: npm audit fix --force
+## 4 devs
+Never use: npm audit fix --force
 -->
